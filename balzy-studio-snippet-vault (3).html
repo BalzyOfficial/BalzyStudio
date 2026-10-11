@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090a0e">
+<title>Balzy Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090a0e;--panel:#111319;--panel2:#171a22;--text:#f3f4f8;--muted:#9399aa;--line:#292d38;--red:#ff435d;--red2:#b92342;--green:#74e0ad;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#35111d 0,transparent 33%),radial-gradient(ellipse at 95% 40%,#171e32 0,transparent 32%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Roboto,system-ui,sans-serif;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit}.app{max-width:1240px;margin:auto;padding:22px 20px 110px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;letter-spacing:0;line-height:1.6}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(140deg,#ff6478,#b30d32);display:grid;place-items:center;box-shadow:0 8px 28px #ff435d30}.logo svg{width:23px}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.7px;margin-top:2px}.status{font-size:12px;color:var(--green);border:1px solid #74e0ad38;background:#74e0ad0d;padding:8px 11px;border-radius:999px;display:flex;align-items:center;gap:7px}.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin:30px 0 24px}.eyebrow{color:#ff8292;font-size:11px;letter-spacing:2px;font-weight:700;text-transform:uppercase}.hero h1{font-size:clamp(18px,3vw,32px);line-height:1.5;letter-spacing:-1px;margin:10px 0 12px}.hero h1 span{color:var(--red)}.hero p{color:var(--muted);max-width:560px;line-height:2;margin:0;font-size:10px}.pill{border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:#ffffff06;color:#cbd0dc;font-size:12px;white-space:nowrap}.section-head{display:flex;justify-content:space-between;align-items:center;margin:28px 0 13px}.section-head h2{font-size:11px;line-height:1.8;margin:0;letter-spacing:-.4px}.section-head span{color:var(--muted);font-size:12px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.feature{background:linear-gradient(145deg,#151821e8,#101218e8);border:1px solid #ffffff0c;border-radius:18px;padding:18px;min-height:145px;transition:.2s;cursor:pointer}.feature:hover{transform:translateY(-3px);border-color:#ff435d70;box-shadow:0 15px 40px #0005}.feature-icon{width:40px;height:40px;border-radius:13px;background:#ff435d13;border:1px solid #ff435d28;display:grid;place-items:center;color:#ff687b;margin-bottom:18px}.feature-icon svg{width:21px;height:21px}.feature b{display:block;font-size:10px;line-height:1.8;margin-bottom:6px}.feature p{font-size:9px;line-height:1.9;color:var(--muted);line-height:1.5;margin:0}.panel{background:#111319eF;border:1px solid #ffffff12;border-radius:var(--radius);padding:20px;margin-top:15px;box-shadow:0 18px 55px #0002}.panel h3{margin:0 0 6px;font-size:11px;line-height:1.8}.sub{font-size:9px;color:var(--muted);margin:0 0 17px;line-height:1.6}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}.btn{border:1px solid var(--line);background:#ffffff07;padding:10px 13px;border-radius:11px;font-size:9px;font-weight:600}.btn.primary{background:linear-gradient(135deg,var(--red),var(--red2));border-color:transparent;color:white}.btn:hover{filter:brightness(1.13)}.field{font-family:"DM Mono",monospace;font-size:12px;width:100%;background:#0b0d12;border:1px solid var(--line);color:var(--text);border-radius:11px;padding:12px;outline:none}.field:focus{border-color:#ff435d99}.label{display:block;color:#b6bbc9;font-size:12px;margin:0 0 7px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.editor{width:100%;min-height:260px;resize:vertical;background:#090b10;color:#dbe3f5;border:1px solid #282d39;border-radius:13px;padding:15px;font:13px/1.65 "DM Mono",monospace;tab-size:2;outline:none}.preview{width:100%;height:320px;background:white;border:0;border-radius:13px}.output{font-family:"DM Mono",monospace;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;background:#090b10;border:1px solid var(--line);border-radius:12px;padding:13px;color:#cbd2e1;font:12px/1.6 "DM Mono",monospace;min-height:60px;max-height:260px;overflow:auto}.row{display:flex;gap:10px}.row>*{flex:1;min-width:0}.smallnote{font-size:11px;line-height:1.6;color:var(--muted);margin-top:10px}.danger{color:#ff9eaa}.good{color:var(--green)}.hidden{display:none!important}.page{display:none}.page.active{display:block}.profile-head{display:flex;align-items:center;gap:15px}.avatar{width:60px;height:60px;border-radius:20px;background:linear-gradient(135deg,#ff6478,#60152a);display:grid;place-items:center;font-size:21px;font-weight:700}.info-line{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid #ffffff0c;font-size:13px}.info-line span{color:var(--muted)}footer{text-align:center;color:#676d7b;font-size:11px;margin:32px 0 8px}.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#20232d;border:1px solid #ffffff20;padding:11px 16px;border-radius:12px;z-index:99;font-size:12px;display:none;max-width:90%;box-shadow:0 10px 30px #0007}
+@media(max-width:850px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}.app{padding:16px 14px 110px}.panel{padding:16px}.status{font-size:11px}}@media(max-width:420px){.navbtn{min-width:62px;padding:9px 8px}.navbtn span{font-size:10px}.cards{gap:9px}.feature{padding:14px;min-height:140px}.top{align-items:flex-start}.pill{display:none}}
+
+.home-banner{position:relative;overflow:hidden;border:1px solid #ff435d55;border-radius:20px;min-height:220px;margin:18px 0 28px;background:linear-gradient(110deg,#0a0c12 8%,#24101b 55%,#111827)}
+.home-banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.home-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#090a0ef2 0%,#090a0e9c 60%,#090a0e30)}
+.banner-copy{position:relative;z-index:1;padding:25px;max-width:650px}
+.banner-copy h2{font-size:clamp(13px,2vw,20px);line-height:1.8;margin:12px 0}
+.banner-copy p{font:10px/2 "DM Mono",monospace;color:#d5d8e2;max-width:520px}
+.media-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.media-card{background:#0b0d12;border:1px solid var(--line);border-radius:14px;padding:12px;min-width:0}
+.media-card video{width:100%;max-height:360px;background:#000;border-radius:9px;margin-bottom:10px}
+.media-card a{overflow-wrap:anywhere;color:#ff8292;font-size:11px}
+.watch-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.watch-card{background:#0b0d12;border:1px solid var(--line);border-radius:13px;padding:14px}
+.watch-card h4{font-size:10px;line-height:1.8;margin:0 0 8px}
+.watch-card p{font:11px/1.7 "DM Mono",monospace;color:var(--muted)}
+.watch-player{width:100%;max-height:480px;background:#000;border-radius:12px;margin-top:12px}
+@media(max-width:600px){.home-banner{min-height:250px}.banner-copy{padding:18px}.brand{font-size:13px}.status{font-size:10px}}
+
+
+
+#snippetPreview{font:12px/1.65 "DM Mono",monospace;color:#dbe3f5;overflow-wrap:anywhere}
+
+/* Feature reveal + tactile card/page transitions */
+.page.active{animation:pageEnter .34s cubic-bezier(.2,.75,.25,1) both}
+@keyframes pageEnter{from{opacity:0;transform:translateY(12px) scale(.992);filter:blur(3px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.feature{transform-origin:center;will-change:transform,opacity;transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .22s,box-shadow .22s,opacity .22s}
+.feature:active,.feature.is-pressed{transform:scale(.965);border-color:#60a5fa;box-shadow:0 0 0 3px #3b82f626,0 14px 32px #0006}
+.feature.is-selected{border-color:#60a5fa99;box-shadow:0 0 0 1px #3b82f644,0 12px 34px #0005}
+.feature-reveal{animation:featureReveal .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes featureReveal{from{opacity:0;transform:translateY(16px) scale(.985);filter:blur(4px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.page .panel{transition:border-color .2s,box-shadow .2s}
+.nav-links a:active{transform:scale(.975);background:#3b82f61c}
+.btn:active,.game-btn:active{transform:scale(.96);filter:brightness(1.18)}
+[data-online-panel]{display:none}
+[data-online-panel].is-visible{display:block;animation:featureReveal .38s cubic-bezier(.16,1,.3,1) both}
+@media(prefers-reduced-motion:reduce){.page.active,.feature-reveal,[data-online-panel].is-visible{animation:none}.feature,.btn,.game-btn,.nav-links a{transition:none}}
+
+/* iOS-inspired system typography; falls back to native Android system fonts. */
+body,button,input,textarea,select{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Roboto,system-ui,sans-serif}
+body{font-size:15px;line-height:1.5}
+.app{max-width:none;margin-left:276px;padding:24px 28px 42px}
+.sidebar{position:fixed;z-index:40;inset:0 auto 0 0;width:252px;padding:22px 15px;background:rgba(14,16,23,.96);border-right:1px solid #ffffff12;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;overflow-y:auto}
+.sidebar-brand{display:flex;align-items:center;gap:11px;padding:0 8px 27px;font-weight:750;font-size:15px;line-height:1.35}
+.sidebar-brand small{display:block;color:var(--muted);font-size:10px;font-weight:500;letter-spacing:1.2px;margin-top:4px}
+.sidebar-label{padding:9px 12px;color:#777e90;font-size:10px;font-weight:700;letter-spacing:1.4px}
+.nav-links{list-style:none;padding:0;margin:0 0 17px}
+.nav-links li{margin:3px 0}
+.nav-links li a{display:flex;align-items:center;height:46px;text-decoration:none;border-radius:12px;color:rgba(255,255,255,.7);transition:all .3s ease;white-space:nowrap;overflow:hidden;padding:0 13px;gap:13px;font-size:14px;font-weight:550}
+.nav-links li a:hover{background:#ffffff0b;color:#fff}
+.nav-links li a.active{color:#fff;background:linear-gradient(100deg,#ff435d27,#ff435d0c);box-shadow:inset 0 0 0 1px #ff435d28}
+.nav-links li a.active .nav-icon{color:#ff7184}
+.nav-icon{width:22px;min-width:22px;text-align:center;font-size:19px;color:#a7adbd}
+.sidebar-foot{margin-top:auto;padding:15px 12px 5px;border-top:1px solid #ffffff12;color:#a3a9b8;font-size:12px;display:flex;align-items:center;gap:9px}
+.sidebar-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px #74e0ad70}
+.sidebar-toggle{display:none;position:fixed;z-index:50;top:14px;left:14px;width:42px;height:42px;border:1px solid #ffffff20;border-radius:12px;background:#171a22;color:#fff;font-size:20px;box-shadow:0 8px 24px #0005}
+.sidebar-backdrop{display:none}
+/* Make the app readable at system-font sizes while preserving the dark visual style. */
+.hero p{font-size:14px;line-height:1.8}.eyebrow{font-size:11px}.hero h1{letter-spacing:-.6px}.section-head h2{font-size:16px}.panel h3{font-size:16px}.sub{font-size:13px}.feature b{font-size:14px}.feature p{font-size:13px}.btn{font-size:13px}.label{font-size:13px}.smallnote{font-size:12px}.field{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}.editor,.output{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+@media(max-width:850px){.app{margin-left:0;padding:70px 16px 32px}.sidebar{transform:translateX(-105%);transition:transform .28s ease;box-shadow:none}.sidebar.open{transform:translateX(0);box-shadow:18px 0 50px #0008}.sidebar-toggle{display:block}.sidebar-backdrop.show{display:block;position:fixed;z-index:35;inset:0;background:#0009}.top{padding-left:48px}.status{font-size:11px}.hero{margin-top:20px}}
+@media(min-width:851px){.sidebar-toggle,.sidebar-backdrop{display:none!important}.app{padding-left:30px;padding-right:30px}}
+
+
+/* Blue particle loading screen */
+.loading-screen{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#10244a 0%,#080d1b 48%,#05070d 100%);opacity:1;visibility:visible;transition:opacity .65s ease,visibility .65s ease}
+.loading-screen.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+#loadingCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.loading-content{position:relative;z-index:1;width:min(340px,82vw);text-align:center;padding:28px 24px;border:1px solid #60a5fa30;border-radius:24px;background:#081120a8;box-shadow:0 20px 80px #0007,inset 0 1px #ffffff0b;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:loadingRise .7s cubic-bezier(.2,.8,.2,1) both}
+.loading-logo{width:68px;height:68px;display:grid;place-items:center;margin:0 auto 16px;border-radius:22px;border:1px solid #60a5fa75;background:linear-gradient(145deg,#2563eb55,#0b1530);box-shadow:0 0 36px #3b82f640,inset 0 1px #ffffff20;color:#bfdbfe;font:700 27px/1 ui-monospace,monospace}
+.loading-title{font-size:25px;font-weight:750;letter-spacing:-.8px;color:#f8fbff}.loading-title span{color:#60a5fa}.loading-caption{margin-top:8px;font-size:9px;font-weight:700;letter-spacing:2.1px;color:#93c5fd}.loading-track{height:4px;margin:24px 0 12px;border-radius:99px;overflow:hidden;background:#ffffff12}.loading-progress{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#2563eb,#60a5fa,#bfdbfe);box-shadow:0 0 14px #60a5fa90;transition:width .2s ease}.loading-status{font-size:12px;color:#b9c9e5;min-height:18px}
+@keyframes loadingRise{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.loading-content{animation:none}.loading-screen,.loading-progress{transition:none}}
+
+
+/* Pixel Quest game UI */
+.game-shell{background:linear-gradient(145deg,#0d1724,#10131c);border:1px solid #ffffff18;border-radius:20px;padding:14px;overflow:hidden}.game-toolbar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.game-stat{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}.stat-chip{background:#080d14;border:1px solid #ffffff17;border-radius:10px;padding:7px 10px;font-size:11px}.bar{display:inline-block;width:72px;height:7px;border-radius:9px;background:#26303b;overflow:hidden;vertical-align:middle;margin-left:5px}.bar i{display:block;height:100%;width:100%;background:#ef4444}.bar.mana i{background:#3b82f6}.game-world-wrap{position:relative;border:1px solid #ffffff20;border-radius:14px;overflow:hidden;background:#5b9d45}.game-world{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:pixelated;touch-action:none}.game-hud{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;pointer-events:none;gap:8px}.game-hud span{background:#07111bd9;color:#f8fafc;border:1px solid #ffffff24;padding:6px 9px;border-radius:8px;font-size:10px}.game-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.control-pad{background:#090e16;border:1px solid #ffffff14;border-radius:14px;padding:10px;min-height:140px}.pad-title{font-size:10px;color:#aab5c6;margin-bottom:8px}.dpad{display:grid;grid-template-columns:repeat(3,42px);grid-template-rows:repeat(3,36px);gap:4px;justify-content:center}.game-btn{border:1px solid #ffffff24;background:#202b3a;color:#fff;border-radius:10px;min-height:36px;font-size:12px;touch-action:none;user-select:none}.game-btn:active,.game-btn.pressed{background:#2563eb;transform:scale(.97)}.game-actions{display:flex;flex-wrap:wrap;gap:6px;align-content:start}.game-actions .game-btn{flex:1;min-width:66px;padding:8px 5px}.game-modal{margin-top:12px;background:#080d14;border:1px solid #ffffff18;border-radius:13px;padding:13px}.game-modal h3{margin:0 0 8px;font-size:14px}.game-modal p,.game-modal li{font-size:12px;line-height:1.7;color:#bdc7d7}.game-modal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.game-item{border:1px solid #ffffff18;border-radius:10px;padding:10px;text-align:center;background:#111b28;font-size:11px}.game-log{font-size:11px;color:#9fadc1;min-height:18px;margin-top:8px}@media(max-width:600px){.game-controls{grid-template-columns:1fr}.game-world{aspect-ratio:4/3}.game-modal-grid{grid-template-columns:repeat(2,1fr)}}
+
+
+/* All-in-One Lab modules */
+.lab-intro{color:var(--muted);font-size:13px;line-height:1.75;margin:0 0 14px}
+.lab-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.lab-card{min-height:150px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;color:var(--text);font:inherit}
+.lab-card .feature-icon{font-size:19px}
+.lab-card small{display:block;color:var(--muted);font-size:12px;line-height:1.55;margin-top:5px}
+.lab-panel{display:none}
+.lab-panel.is-visible{display:block;animation:featureReveal .38s cubic-bezier(.16,1,.3,1) both}
+.lab-code{width:100%;min-height:150px;resize:vertical;background:#090b10;color:#dbe3f5;border:1px solid #282d39;border-radius:13px;padding:13px;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;tab-size:2}
+.lab-preview-wrap{overflow:auto;background:#07090e;border:1px solid var(--line);border-radius:13px;padding:10px;min-height:170px}
+.lab-preview-frame{display:block;width:100%;height:390px;border:0;background:#fff;border-radius:8px;margin:auto;transition:width .25s ease}
+.lab-status{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.6}
+.lab-files{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+.lab-result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px}
+.lab-stat{background:#090d14;border:1px solid #ffffff14;border-radius:12px;padding:12px}
+.lab-stat b{display:block;font-size:17px;margin-top:4px}
+.command-overlay{position:fixed;inset:0;z-index:200;display:none;place-items:start center;padding:12vh 16px 20px;background:#02040bd9;backdrop-filter:blur(12px)}
+.command-overlay.open{display:grid;animation:featureReveal .2s ease both}
+.command-box{width:min(620px,100%);border:1px solid #60a5fa50;background:#111620;border-radius:18px;box-shadow:0 30px 100px #000b;overflow:hidden}
+.command-box input{border:0;border-bottom:1px solid #ffffff16;border-radius:0;padding:17px 18px;font-size:15px}
+.command-list{max-height:55vh;overflow:auto;padding:7px}
+.command-item{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;border:0;border-radius:10px;background:transparent;padding:12px;color:var(--text)}
+.command-item:hover,.command-item:focus{outline:0;background:#3b82f62a}
+.command-item small{color:var(--muted)}
+@media(max-width:850px){.lab-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-card{min-height:140px}}
+@media(max-width:420px){.lab-cards{gap:9px}.lab-card{padding:13px}.lab-preview-frame{height:330px}}
+
+
+/* Polished, consistent card-driven navigation */
+.section-head h2{font-size:18px;letter-spacing:-.35px}.section-head span{font-size:12px}
+.panel h3{font-size:16px;line-height:1.45}.sub{font-size:12px;line-height:1.7}
+.feature b{font-size:14px;line-height:1.45}.feature p,.feature small{font-size:12px;line-height:1.55;color:var(--muted)}
+.btn{font-size:12px;padding:10px 13px}.label{font-size:12px}.smallnote{font-size:11px;line-height:1.65}
+.feature-grid-clean{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0 16px}
+.feature-launch{display:block;width:100%;text-align:left;color:var(--text)}
+.page-feature-panel{display:none}.page-feature-panel.is-visible{display:block;animation:featureReveal .38s cubic-bezier(.16,1,.3,1) both}
+.chat-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.8fr);gap:14px;align-items:start}
+.chat-messages{display:flex;flex-direction:column;gap:10px;height:min(55vh,500px);min-height:260px;overflow:auto;padding:12px;background:#090b10;border:1px solid var(--line);border-radius:14px}
+.chat-message{background:#151923;border:1px solid #ffffff10;border-radius:13px;padding:10px 12px;max-width:100%;overflow-wrap:anywhere}
+.chat-message.is-own{border-color:#3b82f666;background:#172033}.chat-message-head{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:var(--muted);margin-bottom:5px}.chat-message-name{font-weight:700;color:#93c5fd}.chat-message-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.55}
+.chat-empty{color:var(--muted);font-size:12px;text-align:center;padding:28px 10px}.chat-status{font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:center}.chat-status .dot{flex:none}
+.rules-box{white-space:pre-wrap;max-height:230px;overflow:auto;font:11px/1.55 "DM Mono",monospace;background:#090b10;border:1px solid var(--line);padding:12px;border-radius:12px;overflow-wrap:anywhere}
+@media(max-width:800px){.chat-layout{grid-template-columns:1fr}.chat-messages{height:42vh;min-height:230px}}
+
+</style>
+</head>
+<body>
+<div id="loadingScreen" class="loading-screen" role="status" aria-live="polite" aria-label="Memuat Balzy Studio">
+  <canvas id="loadingCanvas" aria-hidden="true"></canvas>
+  <div class="loading-content">
+    <div class="loading-logo"><span>‹/›</span></div>
+    <div class="loading-title">Balzy <span>Studio</span></div>
+    <div class="loading-caption">PREPARING YOUR WORKSPACE</div>
+    <div class="loading-track"><div class="loading-progress" id="loadingProgress"></div></div>
+    <div class="loading-status" id="loadingStatus">Menyiapkan tools coding...</div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<div class="app">
+<header class="top"><div class="brand"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="m8 4-5 8 5 8M16 4l5 8-5 8M14 3l-4 18"/></svg></div><div>Balzy Studio<small>WEB TOOLKIT / CREATIVE LAB</small></div></div><div class="status"><i class="dot"></i> Workspace ready</div></header>
+
+<main id="homePage" class="page active">
+<section class="hero"><div><div class="eyebrow">Build · Test · Explore</div><h1>Your web, your <span>workspace.</span></h1><p>Tempat coding, preview, penerjemah, dan pemeriksaan file dalam satu dashboard minimalis.</p></div><div class="pill">✦ Version 1.0 · Browser workspace</div></section>
+
+<section class="home-banner" aria-label="Video banner">
+  <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1400&q=80">
+    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+  </video>
+  <div class="banner-copy">
+    <div class="eyebrow">BALZY / PIXEL MODE</div>
+    <h2>CREATE · BUILD · EXPLORE</h2>
+    <p>Ruang kreatif untuk menulis kode, menerjemahkan teks, dan memeriksa file secara lokal.</p>
+  </div>
+</section>
+
+<div class="panel"><h3>All-in-One Lab siap</h3><p class="sub">Delapan tool baru tersedia: Live Preview Pro, Debugger, Project Manager, JSON Toolkit, Command Palette, Responsive Tester, Code History, dan Pixel Quest Expansion.</p><div class="toolbar"><button class="btn primary" onclick="go('labPage','lab')">Buka All-in-One Lab →</button><button class="btn" onclick="showCommandPalette()">⌘ Command Palette</button></div></div>
+<div class="panel"><h3>Workspace overview</h3><p class="sub">Tools berjalan di browser. API eksternal membutuhkan koneksi internet dan izin CORS dari penyedia.</p><div class="grid2"><div class="info-line"><span>Code preview</span><b class="good">Available</b></div><div class="info-line"><span>File scan mode</span><b>Static only</b></div><div class="info-line"><span>Translation</span><b>Online API</b></div><div class="info-line"><span>Backend upload</span><b>Not configured</b></div></div></div>
+</main>
+
+<section id="codePage" class="page">
+<div class="section-head"><h2>Code Studio</h2><span>HTML · CSS · JS</span></div>
+<div class="panel"><h3>Editor & live preview</h3><p class="sub">Kode preview dijalankan di iframe terpisah. Jangan masukkan kode yang tidak dipercaya.</p>
+<div class="toolbar"><button class="btn primary" onclick="runCode()">▶ Run preview</button><button class="btn" onclick="downloadCode()">↓ Export code</button><button class="btn" onclick="resetCode()">Reset sample</button><select class="field" style="width:auto;padding:9px" id="editorMode" aria-label="Bahasa"><option value="html">HTML</option><option value="javascript">JavaScript</option><option value="css">CSS</option><option value="python">Python</option><option value="json">JSON</option><option value="markdown">Markdown</option></select><select class="field" style="width:auto;padding:9px" id="templateSelect" aria-label="Template"><option value="">Template coding...</option><option value="landing">Landing page</option><option value="counter">JavaScript counter</option><option value="css">CSS gradient card</option><option value="python">Python starter</option><option value="json">JSON sample</option><option value="markdown">Markdown notes</option></select><label class="btn" style="display:flex;align-items:center;gap:7px"><input type="checkbox" id="liveToggle" checked> Live preview</label><button class="btn" onclick="togglePreview()">Preview: ON</button></div>
+<div class="grid2"><div><label class="label" for="editor">Source code · edit untuk update preview</label><textarea id="editor" class="editor" spellcheck="false"><!doctype html>
+<html>
+<head>
+<style>
+body { font-family: sans-serif; padding: 28px; color: #171923; }
+.card { padding: 24px; border-radius: 18px; background: #f3f4f8; }
+button { background: #e83150; color: white; border: 0; border-radius: 9px; padding: 10px 14px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Hello, Balzy!</h1>
+  <p>Mulai coding dari sini.</p>
+  <button onclick="this.textContent='Berhasil diklik!'">Test button</button>
+</div>
+
+
+</body>
+</html></textarea></div><div><label class="label">Live preview</label><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><label class="label" style="margin:0">Preview</label><button class="btn" onclick="closePreview()">X</button></div><iframe class="preview" id="preview" title="Code preview" sandbox="allow-scripts"></iframe><div id="previewStatus" class="smallnote">Preview siap.</div></div></div><p class="smallnote">HTML, JavaScript, CSS, JSON, dan Markdown dipreview di browser. Python menggunakan Pyodide (perlu internet dan pemuatan awal). Bahasa server seperti PHP/Java/C++ memerlukan runtime/server terpisah. Preview berjalan di iframe sandbox.</p>
+<div class="grid2" style="margin-top:14px"><div class="panel" style="margin:0"><h3>AI Coding Helper</h3><p class="sub">Bantuan lokal sederhana untuk menjelaskan error, membuat checklist, atau menyusun prompt untuk AI.</p><textarea id="aiPrompt" class="field" rows="3" placeholder="Contoh: buat navbar responsif dan jelaskan kode ini"></textarea><div class="toolbar" style="margin-top:10px"><button class="btn primary" onclick="helpWithCode()">Bantu coding</button><button class="btn" onclick="openAI()">Buka ChatGPT ↗</button></div><div id="aiOutput" class="output">Tulis kebutuhanmu untuk mendapatkan saran.</div></div>
+<div class="panel" style="margin:0"><h3>Music corner <button class="btn" style="float:right;padding:5px 9px" onclick="closeMusic()">X</button></h3><p class="sub">Putar musik secara manual. Pilih playlist; audio dimulai setelah tombol Play ditekan.</p><select id="musicSelect" class="field"><option value="lofi">Lofi beats</option><option value="ambient">Ambient focus</option><option value="jazz">Jazz cafe</option></select><div class="toolbar" style="margin-top:10px"><button class="btn primary" onclick="playMusic()">▶ Play</button><button class="btn" onclick="pauseMusic()">Ⅱ Pause</button><button class="btn" onclick="nextMusic()">Next ♫</button></div><div id="musicStatus" class="smallnote">Pilih playlist, lalu tekan Play. Membutuhkan koneksi internet.</div><audio id="musicPlayer" controls style="width:100%;margin-top:8px"></audio></div></div></div>
+<div class="panel"><h3>Snippet Vault</h3><p class="sub">Kumpulan potongan kode siap pakai. Pilih snippet untuk melihatnya, lalu salin atau sisipkan ke editor.</p>
+<div class="grid2"><div><label class="label" for="snippetSelect">Pilih snippet</label><select id="snippetSelect" class="field"><option value="navbar">Responsive navbar (HTML/CSS)</option><option value="localstorage">Simpan data dengan localStorage</option><option value="fetch">Fetch API dengan error handling</option><option value="debounce">Debounce untuk pencarian</option><option value="copy">Tombol copy ke clipboard</option><option value="media">Layout card responsif (CSS)</option></select><div class="toolbar" style="margin-top:10px"><button class="btn primary" onclick="insertSnippet()">＋ Sisipkan ke editor</button><button class="btn" onclick="copySnippet()">Salin snippet</button></div></div><div><label class="label" for="snippetPreview">Preview kode snippet</label><pre id="snippetPreview" class="output" style="max-height:250px;min-height:170px;white-space:pre-wrap"></pre></div></div><p class="smallnote">Snippet ditampilkan sebagai teks aman. Menyisipkan snippet akan menambahkan kode di akhir isi editor; sesuaikan dengan bahasa yang sedang kamu gunakan.</p></div>
+</section>
+
+<section id="translatePage" class="page">
+<div class="section-head"><h2>Translator</h2><span>Online translation</span></div>
+<div class="panel"><h3>Terjemahkan teks</h3><p class="sub">Menggunakan endpoint publik MyMemory. Kualitas dan batas penggunaan mengikuti penyedia API.</p>
+<label class="label">Teks sumber</label><textarea id="transInput" class="field" rows="6" placeholder="Masukkan teks yang ingin diterjemahkan..."></textarea>
+<div class="grid2" style="margin-top:13px"><div><label class="label">Dari bahasa</label><select id="fromLang" class="field"><option value="auto">Deteksi otomatis</option><option value="id">Indonesia</option><option value="en">Inggris</option><option value="ja">Jepang</option><option value="ko">Korea</option><option value="zh-CN">Mandarin</option><option value="es">Spanyol</option><option value="fr">Prancis</option><option value="ar">Arab</option><option value="hi">Hindi</option></select></div><div><label class="label">Ke bahasa</label><select id="toLang" class="field"><option value="id">Indonesia</option><option value="en">Inggris</option><option value="ja">Jepang</option><option value="ko">Korea</option><option value="zh-CN">Mandarin</option><option value="es">Spanyol</option><option value="fr">Prancis</option><option value="ar">Arab</option><option value="hi">Hindi</option></select></div></div>
+<div class="toolbar" style="margin-top:14px"><button class="btn primary" onclick="translateText()">Translate text</button><button class="btn" onclick="copyOutput('transOutput')">Copy result</button></div><label class="label">Hasil terjemahan</label><div id="transOutput" class="output">Hasil terjemahan akan muncul di sini.</div><p class="smallnote">Teks yang dikirim ke layanan terjemahan pihak ketiga dapat diproses oleh layanan tersebut. Jangan kirim data rahasia.</p></div>
+</section>
+<section id="scanPage" class="page">
+<div class="section-head"><h2>Static File Scan</h2><span>APK · EXE · DLL</span></div>
+<div class="panel"><h3>Analisis file secara statis</h3><p class="sub">File diperiksa di browser dan tidak dijalankan atau diunggah ke server. Pemeriksaan ini bersifat heuristik, bukan pengganti antivirus atau sandbox profesional.</p>
+<label class="label">Pilih file</label><input id="scanFile" class="field" type="file" accept=".apk,.exe,.dll,.dex,.jar,.zip,application/vnd.android.package-archive,application/x-msdownload">
+<div class="toolbar" style="margin-top:14px"><button class="btn primary" onclick="scanFile()">Analyze locally</button><button class="btn" onclick="clearScan()">Clear & remove file</button></div>
+<div id="scanSummary" class="output">Belum ada analisis.</div><div id="scanDetails" style="margin-top:12px"></div>
+<p class="smallnote"><b>Batasan penting:</b> browser tidak dapat menjamin deteksi ransomware, fullscreen lock, atau semua nomor telepon tersemat hanya dengan pencarian string. APK adalah arsip ZIP; untuk membongkar manifest/DEX secara benar dibutuhkan parser khusus. Analisis ini mencari indikator sederhana dari nama file dan string yang terbaca. File diproses lokal; tombol clear menghapus referensi file dari halaman.</p></div>
+</section>
+
+
+<section id="gamePage" class="page">
+<div class="section-head"><h2>Pixel Quest</h2><span>Voxel survival · mini game</span></div>
+<div class="game-shell">
+ <div class="game-toolbar"><button class="btn primary" onclick="startPixelGame()">▶ Mulai / Lanjut</button><button class="btn" onclick="toggleAutoMove()" id="autoMoveBtn">Auto gerak: OFF</button><button class="btn" onclick="gameAction('city')">⌂ Kota</button><button class="btn" onclick="resetPixelGame()">↻ Reset</button></div>
+ <div class="game-stat"><span class="stat-chip">❤️ Nyawa <span class="bar"><i id="healthBar" style="width:100%"></i></span> <b id="healthText">100</b></span><span class="stat-chip">✦ Mana <span class="bar mana"><i id="manaBar" style="width:100%"></i></span> <b id="manaText">100</b></span><span class="stat-chip">🪙 <b id="coinText">0</b></span><span class="stat-chip">📍 <b id="zoneText">Padang Pixel</b></span></div>
+ <div class="game-world-wrap"><canvas id="pixelWorld" class="game-world" width="640" height="400" aria-label="Dunia game Pixel Quest"></canvas><div class="game-hud"><span id="gameModeLabel">MODE PETUALANGAN</span><span id="coordLabel">X: 0 · Y: 0</span></div></div>
+ <div class="game-controls"><div class="control-pad"><div class="pad-title">FULL CONTROL · ANALOG / ARAH</div><div class="dpad"><span></span><button class="game-btn" data-dir="up">▲</button><span></span><button class="game-btn" data-dir="left">◀</button><button class="game-btn" onclick="stopGameMove()">●</button><button class="game-btn" data-dir="right">▶</button><span></span><button class="game-btn" data-dir="down">▼</button><span></span></div><p class="smallnote">Di komputer: gunakan tombol WASD atau panah. Di HP: tahan tombol arah.</p></div><div class="control-pad"><div class="pad-title">AKSI KARAKTER</div><div class="game-actions"><button class="game-btn" onclick="toggleRun()" id="runBtn">🏃 Lari: OFF</button><button class="game-btn" onclick="gameAction('mine')">⛏ Tambang</button><button class="game-btn" onclick="gameAction('attack')">⚔ Aksi</button><button class="game-btn" onclick="gameAction('jump')">⬆ Lompat</button><button class="game-btn" onclick="gameAction('heal')">✚ Pulihkan</button><button class="game-btn" onclick="openGamePanel('inventory')">🎒 Tas</button><button class="game-btn" onclick="openGamePanel('character')">🧍 Karakter</button><button class="game-btn" onclick="openGamePanel('skills')">✨ Skill</button><button class="game-btn" onclick="openGamePanel('help')">❔ Bantuan</button><button class="game-btn" onclick="pqMine()">⛏ Resource</button><button class="game-btn" onclick="pqAttack()">👾 Monster</button><button class="game-btn" onclick="go('labPage','lab');openLabFeature(null,'quest')">📜 Quest / Craft</button></div></div></div>
+ <div id="gamePanel" class="game-modal"><h3>Selamat datang di Pixel Quest</h3><p>Jelajahi dunia blok, kumpulkan kristal, tambang balok, dan kunjungi kota. Ini mini game 2D bergaya voxel yang berjalan langsung di browser.</p></div><div class="game-log" id="gameLog" aria-live="polite">Tekan Mulai / Lanjut untuk bermain.</div>
+</div>
+</section>
+
+
+<section id="onlinePage" class="page">
+<div class="section-head"><h2>Online Hub</h2><span>Internet tools · no account required</span></div>
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+ <div class="feature" role="button" tabindex="0" onclick="openOnlineFeature(this,'connection')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openOnlineFeature(this,'connection')}"><div class="feature-icon">◉</div><b>Cek koneksi</b><p>Periksa status internet browser dan latensi perkiraan.</p></div>
+ <div class="feature" role="button" tabindex="0" onclick="openOnlineFeature(this,'ip')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openOnlineFeature(this,'ip')}"><div class="feature-icon">⌁</div><b>IP publik</b><p>Lihat alamat IP publik melalui layanan pihak ketiga.</p></div>
+ <div class="feature" role="button" tabindex="0" onclick="openOnlineFeature(this,'api')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openOnlineFeature(this,'api')}"><div class="feature-icon">{ }</div><b>Demo REST API</b><p>Coba endpoint publik untuk latihan request dan JSON.</p></div>
+</div>
+<div class="panel" data-online-panel="connection"><h3>Status koneksi internet</h3><p class="sub">Status browser bukan jaminan semua situs bisa diakses. Klik untuk menguji koneksi ke endpoint publik.</p>
+<div class="toolbar"><button class="btn primary" onclick="checkInternet()">Periksa koneksi</button><span id="onlineStatus" class="status"><i class="dot"></i> Belum diperiksa</span></div>
+<div class="info-line"><span>Browser online</span><b id="browserOnline">Belum diketahui</b></div><div class="info-line"><span>Latensi endpoint</span><b id="onlineLatency">—</b></div><div class="info-line"><span>Terakhir diperiksa</span><b id="onlineCheckedAt">—</b></div>
+</div>
+<div class="panel" data-online-panel="ip"><h3>Lookup IP publik</h3><p class="sub">Mengirim permintaan ke api.ipify.org. IP dapat dianggap sebagai data pribadi; hanya jalankan jika kamu setuju memakai layanan tersebut.</p>
+<div class="toolbar"><button class="btn primary" onclick="lookupPublicIP()">Lihat IP publik</button><button class="btn" onclick="copyOutput('publicIPOutput')">Salin hasil</button></div><div id="publicIPOutput" class="output">IP publik belum diminta.</div>
+</div>
+<div class="panel" data-online-panel="api"><h3>HTTP / REST API Tester</h3><p class="sub">Kirim request langsung dari browser, lihat status, waktu respons, dan body. Banyak API membatasi akses browser dengan CORS; kegagalan CORS tidak selalu berarti server mati. Jangan masukkan password atau token rahasia ke API yang tidak kamu percaya.</p>
+<div class="toolbar"><select id="apiMethod" class="field" style="width:auto"><option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option></select><input id="apiUrl" class="field" style="flex:1;min-width:180px" type="url" placeholder="https://jsonplaceholder.typicode.com/todos/1" value="https://jsonplaceholder.typicode.com/todos/1"></div>
+<div class="grid2"><div><label class="label" for="apiHeaders">Headers (JSON)</label><textarea id="apiHeaders" class="field" rows="5" spellcheck="false" placeholder='{"Accept":"application/json"}'>{"Accept":"application/json"}</textarea></div><div><label class="label" for="apiBody">Body (untuk POST/PUT/PATCH)</label><textarea id="apiBody" class="field" rows="5" spellcheck="false" placeholder='{"title":"hello","completed":false}'></textarea></div></div>
+<div class="toolbar" style="margin-top:12px"><button class="btn primary" id="apiSendBtn" onclick="sendApiRequest()">▶ Kirim request</button><button class="btn" onclick="useApiExample('jsonplaceholder')">Contoh GET</button><button class="btn" onclick="useApiExample('post')">Contoh POST</button><button class="btn" onclick="clearApiResult()">Bersihkan</button></div>
+<div class="grid2"><div><label class="label">Status</label><div id="apiResponseStatus" class="output">Belum ada request.</div></div><div><label class="label">Waktu respons</label><div id="apiResponseTime" class="output">—</div></div></div>
+<label class="label" style="margin-top:12px">Respons body</label><pre id="apiResponseBody" class="output" style="max-height:380px">Respons akan muncul di sini.</pre>
+</div>
+<div class="panel" data-online-panel="security"><h3>Catatan keamanan</h3><p class="sub" style="margin-bottom:0">Tools ini tidak membutuhkan login. Request dikirim dari browser ke layanan yang kamu pilih. Hindari endpoint yang tidak dikenal, jangan membagikan API key, dan ingat bahwa server pihak ketiga dapat mencatat alamat IP serta metadata permintaanmu.</p></div>
+</section>
+
+
+
+<section id="chatPage" class="page">
+ <div class="section-head"><h2>Global Chat</h2><span>Firebase · real-time · anonymous account</span></div>
+ <p class="lab-intro">Chat publik real-time untuk semua pengunjung yang memakai Firebase project yang sama. Tidak perlu membuat username/password: setelah Firebase disiapkan, Balzy membuat akun anonim otomatis dan menyimpannya di Firebase Authentication.</p>
+ <div class="feature-grid-clean" id="chatCards">
+  <button class="feature feature-launch" type="button" onclick="openChatFeature(this)"><span class="feature-icon">◉</span><b>Buka Global Chat</b><p>Chat live, identitas Guest otomatis, dan pesan tersinkron antar-perangkat.</p></button>
+ </div>
+ <div class="panel" id="globalChatPanel" data-chat-panel="main" style="display:none">
+  <div class="section-head" style="margin-top:0"><h2>Balzy Global Room</h2><span id="chatAccountLabel">Guest belum dibuat</span></div>
+  <div class="chat-status" style="margin-bottom:12px"><i class="dot"></i><span id="firebaseChatStatus">Menghubungkan ke Firebase Balzy Studio…</span></div>
+  <div id="firebaseSetupBox" class="panel" style="margin:0 0 14px;background:#0d1017">
+   <h3>Status konfigurasi Firebase</h3>
+   <p class="sub">Konfigurasi Firebase sudah tertanam di Balzy Studio. Jika koneksi gagal, pastikan Authentication Anonymous aktif dan Security Rules Firestore sudah dipublikasikan.</p>
+   <label class="label" for="firebaseConfigInput">Firebase Web App config · JSON</label>
+   <textarea id="firebaseConfigInput" class="field" rows="6" spellcheck="false" placeholder='{"apiKey":"...","authDomain":"project.firebaseapp.com","projectId":"project-id","appId":"..."}'></textarea>
+   <div class="toolbar" style="margin-top:10px"><button class="btn primary" type="button" onclick="configureBalzyFirebase()">Simpan & hubungkan</button><button class="btn" type="button" onclick="disconnectBalzyFirebase()">Hapus config lokal</button></div>
+   <div id="firebaseSetupStatus" class="smallnote">Akun anonim baru dibuat otomatis setelah konfigurasi berhasil dan chat pertama kali dibuka.</div>
+   <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12px;color:#93c5fd">Tampilkan Firestore Security Rules</summary><p class="sub" style="margin-top:10px">Tempel rules ini di Firebase Console → Firestore Database → Rules lalu Publish. Tanpa rules yang sesuai, chat tidak akan dapat membaca/menulis pesan dengan aman.</p>
+   <pre id="firebaseRulesText" class="rules-box">rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid;
+      allow delete: if false;
+    }
+    match /globalMessages/{messageId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 500
+        && request.resource.data.username is string
+        && request.resource.data.username.size() <= 24
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+  }
+}</pre><button class="btn" type="button" onclick="copyFirebaseRules()" style="margin-top:8px">Salin Security Rules</button>
+   </details>
+  </div>
+  <div id="chatRoomBox" class="hidden">
+   <div class="toolbar"><input id="chatNickname" class="field" maxlength="24" placeholder="Nama tampilan (opsional)" style="flex:1;min-width:150px"><button class="btn" type="button" onclick="saveChatNickname()">Simpan nama</button><button class="btn" type="button" onclick="reconnectBalzyFirebase()">Hubungkan ulang</button><button class="btn" type="button" onclick="showFirebaseSettings()">Pengaturan Firebase</button></div>
+   <div class="chat-layout"><div><div id="chatMessages" class="chat-messages" aria-live="polite"><div class="chat-empty">Menghubungkan chat…</div></div>
+    <form id="chatSendForm" class="toolbar" style="margin-top:10px;align-items:stretch"><textarea id="chatMessageInput" class="field" rows="2" maxlength="500" placeholder="Tulis pesan… (maks. 500 karakter)" style="flex:1;min-width:0;resize:vertical"></textarea><button class="btn primary" id="chatSendBtn" type="submit">Kirim</button></form><div class="smallnote">Jangan kirim password, data pribadi, atau konten berbahaya. Pesan terlihat oleh pengguna chat lain.</div>
+   </div><div class="panel" style="margin:0"><h3>Identitas otomatis</h3><div class="info-line"><span>Mode akun</span><b>Anonymous</b></div><div class="info-line"><span>Firebase UID</span><b id="chatUidLabel" style="max-width:170px;overflow-wrap:anywhere">—</b></div><div class="info-line"><span>Realtime</span><b id="chatRealtimeLabel">Menunggu</b></div><p class="sub" style="margin-top:12px">Akun dibuat otomatis dengan Firebase Anonymous Authentication dan profil Guest dicatat di Firestore. Tidak ada password atau login manual.</p><p class="smallnote">Admin project tetap perlu mengatur Security Rules dan perlindungan spam. Untuk produksi, aktifkan App Check dan tambahkan moderasi/rate limit di server.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="labPage" class="page">
+ <div class="section-head"><h2>All-in-One Lab</h2><span>8 tools · local-first</span></div>
+ <p class="lab-intro">Pilih card untuk membuka tool. Panel lain tetap tersembunyi sampai dipilih. Proyek, autosave, dan riwayat disimpan di browser perangkat ini.</p>
+ <div class="lab-cards" id="labCards">
+  <button class="feature lab-card" onclick="openLabFeature(this,'preview')"><span class="feature-icon">▣</span><b>Live Preview Pro</b><small>Jalankan kode dan buka preview layar penuh.</small></button>
+  <button class="feature lab-card" onclick="openLabFeature(this,'debugger')"><span class="feature-icon">⌁</span><b>Code Debugger</b><small>Cek syntax dan jalankan JavaScript di iframe sandbox.</small></button>
+  <button class="feature lab-card" onclick="openLabFeature(this,'projects')"><span class="feature-icon">▤</span><b>Project Manager</b><small>Kelola beberapa file dan simpan proyek lokal.</small></button>
+  <button class="feature lab-card" onclick="openLabFeature(this,'json')"><span class="feature-icon">{ }</span><b>JSON Toolkit</b><small>Format, minify, validasi, dan tampilkan tabel.</small></button>
+  <button class="feature lab-card" onclick="openLabFeature(this,'commands')"><span class="feature-icon">⌘</span><b>Command Palette</b><small>Cari menu atau jalankan aksi cepat.</small></button>
+  <button class="feature lab-card" onclick="openLabFeature(this,'responsive')"><span class="feature-icon">▱</span><b>Responsive Tester</b><small>Uji preview di ukuran HP, tablet, dan desktop.</small></button>
+  <button class="feature lab-card" onclick="openLabFeature(this,'history')"><span class="feature-icon">↶</span><b>Code History & Autosave</b><small>Simpan otomatis dan pulihkan snapshot kode.</small></button>
+  <button class="feature lab-card" onclick="openLabFeature(this,'quest')"><span class="feature-icon">⚒</span><b>Pixel Quest Expansion</b><small>Crafting, quest, monster, level, dan save game.</small></button>
+ </div>
+ <div class="panel lab-panel" data-lab-panel="preview">
+  <h3>Live Preview Pro</h3><p class="sub">Memakai kode aktif di Code Studio. HTML/CSS/JS dapat dipreview di browser; kode tidak dipercaya tetap berjalan dalam iframe sandbox.</p>
+  <div class="toolbar"><button class="btn primary" onclick="renderLabPreview()">▶ Refresh preview</button><button class="btn" onclick="openPreviewFullscreen()">⛶ Layar penuh</button><button class="btn" onclick="go('codePage','code')">Buka editor</button></div>
+  <div class="lab-preview-wrap"><iframe id="labPreviewFrame" class="lab-preview-frame" sandbox="allow-scripts" title="Live Preview Pro"></iframe></div><div id="labPreviewStatus" class="lab-status">Tekan Refresh preview untuk merender kode aktif.</div>
+ </div>
+ <div class="panel lab-panel" data-lab-panel="debugger">
+  <h3>Code Debugger</h3><p class="sub">Cek syntax JavaScript dan jalankan kode dalam iframe sandbox. Jangan jalankan kode dari sumber yang tidak dipercaya; script infinite-loop dapat membebani browser.</p>
+  <label class="label" for="debugCode">JavaScript</label><textarea id="debugCode" class="lab-code" spellcheck="false">const total = 2 + 3;\nconsole.log('Total:', total);</textarea>
+  <div class="toolbar" style="margin-top:10px"><button class="btn" onclick="loadEditorIntoDebugger()">Ambil dari editor</button><button class="btn primary" onclick="checkDebugSyntax()">✓ Cek syntax</button><button class="btn" onclick="runDebugCode()">▶ Run sandbox</button><button class="btn" onclick="document.getElementById('debugOutput').textContent='Output dibersihkan.'">Bersihkan</button></div>
+  <pre id="debugOutput" class="output">Hasil pemeriksaan akan tampil di sini.</pre><iframe id="debugRunner" sandbox="allow-scripts" class="hidden" title="JavaScript sandbox"></iframe>
+ </div>
+ <div class="panel lab-panel" data-lab-panel="projects">
+  <h3>Project Manager</h3><p class="sub">Kelola file proyek sederhana. Data disimpan di localStorage browser ini, bukan di cloud.</p>
+  <div class="lab-files"><select id="projectFileSelect" class="field" aria-label="Pilih file proyek" onchange="selectProjectFile()"></select><button class="btn" onclick="newProjectFile()">＋ File</button></div>
+  <div class="toolbar" style="margin-top:10px"><button class="btn primary" onclick="saveProjectFile()">Simpan file</button><button class="btn" onclick="loadProjectFileToEditor()">Buka di editor</button><button class="btn" onclick="deleteProjectFile()">Hapus file</button><button class="btn" onclick="previewProject()">▶ Preview proyek</button><button class="btn" onclick="exportProject()">↓ Export JSON</button><button class="btn" onclick="importProject()">↑ Import JSON</button></div>
+  <label class="label" for="projectFileCode">Isi file terpilih</label><textarea id="projectFileCode" class="lab-code" spellcheck="false"></textarea><div id="projectStatus" class="lab-status">Proyek lokal siap.</div><input id="projectImportFile" type="file" accept="application/json,.json" class="hidden" onchange="handleProjectImport(event)">
+ </div>
+ <div class="panel lab-panel" data-lab-panel="json">
+  <h3>JSON Toolkit</h3><p class="sub">Format, minify, validasi, dan konversi array objek JSON menjadi tabel sederhana.</p>
+  <label class="label" for="jsonInput">JSON input</label><textarea id="jsonInput" class="lab-code" spellcheck="false">{\n  "project": "Balzy Studio",\n  "features": ["preview", "debugger"],\n  "active": true\n}</textarea>
+  <div class="toolbar" style="margin-top:10px"><button class="btn primary" onclick="processJSON('format')">Format</button><button class="btn" onclick="processJSON('minify')">Minify</button><button class="btn" onclick="processJSON('validate')">Validasi</button><button class="btn" onclick="processJSON('table')">Buat tabel</button><button class="btn" onclick="copyJSONResult()">Salin hasil</button></div>
+  <pre id="jsonOutput" class="output">Output JSON akan tampil di sini.</pre><div id="jsonTableWrap" class="output hidden"></div>
+ </div>
+ <div class="panel lab-panel" data-lab-panel="commands">
+  <h3>Command Palette</h3><p class="sub">Tekan Ctrl/⌘ + K kapan saja untuk membuka pencarian perintah. Pilih hasil untuk menavigasi atau menjalankan aksi.</p>
+  <div class="toolbar"><button class="btn primary" onclick="showCommandPalette()">⌘ Buka Command Palette</button><span class="smallnote">Shortcut: Ctrl/⌘ + K</span></div><div class="output">Perintah tersedia: buka Code Studio, Online Hub, Pixel Quest, Translator, All-in-One Lab; jalankan preview; simpan proyek; buka JSON Toolkit, debugger, responsive tester, dan riwayat kode.</div>
+ </div>
+ <div class="panel lab-panel" data-lab-panel="responsive">
+  <h3>Responsive Tester</h3><p class="sub">Menguji kode aktif pada beberapa lebar layar. Preview memakai sandbox iframe dan tidak terhubung ke browser devtools.</p>
+  <div class="toolbar"><select id="responsiveSize" class="field" style="width:auto" onchange="setResponsiveSize()"><option value="390">Phone · 390 px</option><option value="360">Small phone · 360 px</option><option value="768">Tablet · 768 px</option><option value="1024">Laptop · 1024 px</option><option value="1280">Desktop · 1280 px</option><option value="100%">Full width</option></select><button class="btn primary" onclick="renderResponsivePreview()">Refresh</button><span id="responsiveWidthLabel" class="smallnote">390 px</span></div>
+  <div class="lab-preview-wrap"><iframe id="responsiveFrame" class="lab-preview-frame" sandbox="allow-scripts" title="Responsive preview" style="width:390px"></iframe></div><div class="lab-status">Jika halaman di dalam preview memuat aset eksternal, hasilnya bergantung pada jaringan dan kebijakan browser.</div>
+ </div>
+ <div class="panel lab-panel" data-lab-panel="history">
+  <h3>Code History & Autosave</h3><p class="sub">Autosave editor ke localStorage secara lokal. Buat snapshot bernama untuk menyimpan titik pemulihan.</p>
+  <div class="lab-result-grid"><div class="lab-stat"><span class="smallnote">Autosave</span><b id="autosaveStatus">Menunggu perubahan</b></div><div class="lab-stat"><span class="smallnote">Snapshot tersimpan</span><b id="historyCount">0</b></div><div class="lab-stat"><span class="smallnote">Editor aktif</span><b id="historyMode">HTML</b></div></div>
+  <div class="toolbar" style="margin-top:12px"><input id="snapshotName" class="field" placeholder="Nama snapshot (opsional)" style="flex:1;min-width:160px"><button class="btn primary" onclick="saveCodeSnapshot()">＋ Simpan snapshot</button><button class="btn" onclick="restoreAutosave()">Pulihkan autosave</button><button class="btn" onclick="clearCodeHistory()">Hapus riwayat</button></div>
+  <label class="label" for="historySelect">Riwayat kode</label><select id="historySelect" class="field"></select><div class="toolbar" style="margin-top:10px"><button class="btn" onclick="previewHistorySnapshot()">Lihat snapshot</button><button class="btn primary" onclick="restoreHistorySnapshot()">Pulihkan ke editor</button><button class="btn" onclick="exportHistorySnapshot()">Export snapshot</button></div><pre id="historyPreview" class="output">Snapshot belum dipilih.</pre><div id="autosaveNote" class="lab-status">Autosave aktif saat ada perubahan editor.</div>
+ </div>
+ <div class="panel lab-panel" data-lab-panel="quest">
+  <h3>Pixel Quest Expansion</h3><p class="sub">Tambahan progres untuk game Pixel Quest: quest, crafting, monster, level, dan simpan/muat progres di browser ini.</p>
+  <div class="lab-result-grid"><div class="lab-stat"><span class="smallnote">Level</span><b id="pqLevel">1</b></div><div class="lab-stat"><span class="smallnote">XP</span><b id="pqXP">0 / 50</b></div><div class="lab-stat"><span class="smallnote">Monster</span><b id="pqMonster">Belum dikalahkan</b></div></div>
+  <div class="toolbar" style="margin-top:12px"><button class="btn primary" onclick="pqMine()">⛏ Kumpulkan resource</button><button class="btn" onclick="pqAttack()">⚔ Serang monster</button><button class="btn" onclick="pqCraft('pickaxe')">Craft pickaxe (3 kayu + 2 batu)</button><button class="btn" onclick="pqCraft('potion')">Craft potion (2 kristal)</button></div>
+  <div class="toolbar"><button class="btn" onclick="pqVisitCity()">🏘 Kunjungi kota</button><button class="btn primary" onclick="pqSave()">💾 Simpan progres</button><button class="btn" onclick="pqLoad()">↻ Muat progres</button><button class="btn" onclick="pqReset()">Reset progres</button></div>
+  <div id="pqQuestList" class="output">Quest: kumpulkan 5 resource, kunjungi kota, dan kalahkan monster.</div><div id="pqStatus" class="lab-status">Progres game disimpan secara lokal saat kamu menekan Simpan progres.</div>
+ </div>
+</section>
+
+<section id="profilePage" class="page">
+<div class="section-head"><h2>Profile</h2><span>Workspace settings</span></div><div class="panel"><div class="profile-head"><div class="avatar" id="profileAvatar">G</div><div><h3 id="profileDisplayName" style="margin-bottom:4px">Guest belum dibuat</h3><p class="sub" id="profileAccountType" style="margin:0">Akun Firebase akan dibuat otomatis saat Global Chat dibuka</p></div></div><div style="margin-top:18px"><div class="info-line"><span>Status akun</span><b id="profileFirebaseStatus">Belum terhubung</b></div><div class="info-line"><span>Firebase UID</span><b id="profileFirebaseUid" style="max-width:62%;overflow-wrap:anywhere">—</b></div><div class="info-line"><span>Metode login</span><b>Anonymous</b></div><div class="info-line"><span>Workspace</span><b>Balzy Studio</b></div></div><p class="smallnote">Akun anonim dibuat otomatis saat kamu membuka Global Chat. UID ini adalah identitas akun di Firebase; akun akan tersedia kembali di browser yang sama selama sesi autentikasi masih tersimpan.</p><button class="btn primary" type="button" onclick="go('chatPage','chat');setTimeout(()=>openChatFeature(document.querySelector('#chatCards .feature')),80)">Buka Global Chat</button></div>
+</section>
+<section id="devPage" class="page">
+<div class="section-head"><h2>Developer Info</h2><span>About this project</span></div><div class="panel"><div class="profile-head"><div class="logo" style="width:60px;height:60px"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="m8 4-5 8 5 8M16 4l5 8-5 8M14 3l-4 18"/></svg></div><div><h3>Balzy Studio</h3><p class="sub" style="margin:0">A compact web toolkit · all-in-one workspace</p></div></div><div style="margin-top:18px"><div class="info-line"><span>Developer</span><b>Balzy</b></div><div class="info-line"><span>Build</span><b>HTML · CSS · JavaScript</b></div><div class="info-line"><span>Architecture</span><b>Frontend-first</b></div></div><p class="sub" style="margin-top:18px">Dibuat untuk coding ringan, uji preview, terjemahan, dan pemeriksaan indikator file statis. API pihak ketiga memiliki syarat, batas penggunaan, dan ketentuan privasinya sendiri.</p></div>
+</section>
+<footer>Balzy Studio · Built for the web · Use APIs responsibly</footer>
+</div>
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Buka navigasi" onclick="toggleSidebar()">☰</button>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
+<aside class="sidebar" id="sidebar" aria-label="Sidebar navigasi">
+  <div class="sidebar-brand"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="m8 4-5 8 5 8M16 4l5 8-5 8M14 3l-4 18"/></svg></div><div>Balzy Studio<small>WEB TOOLKIT</small></div></div>
+  <div class="sidebar-label">WORKSPACE</div>
+  <ul class="nav-links">
+    <li><a href="#homePage" class="active" data-page="homePage" onclick="go('homePage','home');return false"><span class="nav-icon">⌂</span><span>Beranda</span></a></li>
+    <li><a href="#codePage" data-page="codePage" onclick="go('codePage','code');return false"><span class="nav-icon">‹›</span><span>Code Studio</span></a></li>
+    <li><a href="#translatePage" data-page="translatePage" onclick="go('translatePage','translate');return false"><span class="nav-icon">文</span><span>Translator</span></a></li>
+    <li><a href="#scanPage" data-page="scanPage" onclick="go('scanPage','scan');return false"><span class="nav-icon">◇</span><span>Static File Scan</span></a></li>
+    <li><a href="#gamePage" data-page="gamePage" onclick="go('gamePage','game');return false"><span class="nav-icon">▦</span><span>Pixel Quest Game</span></a></li>
+    <li><a href="#onlinePage" data-page="onlinePage" onclick="go('onlinePage','online');return false"><span class="nav-icon">◎</span><span>Online Hub</span></a></li>
+    <li><a href="#chatPage" data-page="chatPage" onclick="go('chatPage','chat');return false"><span class="nav-icon">◉</span><span>Global Chat</span></a></li>
+    <li><a href="#labPage" data-page="labPage" onclick="go('labPage','lab');return false"><span class="nav-icon">✣</span><span>All-in-One Lab</span></a></li>
+  </ul>
+  <div class="sidebar-label">PERSONAL</div>
+  <ul class="nav-links">
+    <li><a href="#profilePage" data-page="profilePage" onclick="go('profilePage','profile');return false"><span class="nav-icon">○</span><span>Profile</span></a></li>
+    <li><a href="#devPage" data-page="devPage" onclick="go('devPage','dev');return false"><span class="nav-icon">✦</span><span>Developer Info</span></a></li>
+  </ul>
+  <div class="sidebar-foot"><span class="sidebar-dot"></span> Workspace ready</div>
+</aside>
+<div id="commandOverlay" class="command-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Command Palette">
+ <div class="command-box"><input id="commandSearch" class="field" type="search" placeholder="Cari perintah... (mis. JSON, preview, game)" autocomplete="off"><div id="commandList" class="command-list"></div><div style="padding:10px 15px;color:var(--muted);font-size:11px;border-top:1px solid #ffffff14">Esc untuk menutup · Enter untuk memilih</div></div>
+</div>
+<script>
+
+// Pixel Quest: lightweight Minecraft-inspired 2D block adventure
+const pg={canvas:null,ctx:null,x:320,y:200,health:100,mana:100,coins:0,running:false,run:false,auto:false,dir:null,frame:0,zone:'Padang Pixel',items:{wood:0,stone:0,crystal:0},keys:{},last:0,raf:0};
+const pgColors={grass:'#5d9e48',darkGrass:'#4b873b',water:'#3988bd',sand:'#cbb56d',stone:'#7e8790',tree:'#28633d',wood:'#95613c',crystal:'#74d9ff',house:'#c18b59',roof:'#9e4545'};
+function initPixelGame(){pg.canvas=document.getElementById('pixelWorld');if(!pg.canvas)return;pg.ctx=pg.canvas.getContext('2d');drawPixelWorld();document.querySelectorAll('[data-dir]').forEach(b=>{const d=b.dataset.dir;const down=e=>{e.preventDefault();pg.dir=d;b.classList.add('pressed')};const up=e=>{e.preventDefault();if(pg.dir===d)pg.dir=null;b.classList.remove('pressed')};b.addEventListener('pointerdown',down);['pointerup','pointercancel','pointerleave'].forEach(ev=>b.addEventListener(ev,up));});window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'].includes(k)){pg.keys[k]=true;if(document.getElementById('gamePage').classList.contains('active'))e.preventDefault()} });window.addEventListener('keyup',e=>{delete pg.keys[e.key.toLowerCase()]});}
+function drawPixelWorld(){if(!pg.ctx)return;const c=pg.ctx;c.clearRect(0,0,640,400);const tile=32;for(let y=0;y<400;y+=tile)for(let x=0;x<640;x+=tile){let n=(Math.floor(x/tile)*17+Math.floor(y/tile)*31)%19;c.fillStyle=n===0?pgColors.darkGrass:pgColors.grass;c.fillRect(x,y,tile,tile);c.strokeStyle='#ffffff0b';c.strokeRect(x,y,tile,tile);if(n===2||n===11){c.fillStyle=pgColors.water;c.fillRect(x+2,y+2,28,28)}else if(n===5||n===14){c.fillStyle=pgColors.sand;c.fillRect(x+2,y+2,28,28)}else if(n===7){c.fillStyle=pgColors.stone;c.fillRect(x+5,y+7,22,20);c.fillStyle='#aeb5bc';c.fillRect(x+9,y+10,6,4)}else if(n===9){c.fillStyle=pgColors.wood;c.fillRect(x+12,y+12,9,18);c.fillStyle=pgColors.tree;c.fillRect(x+4,y+1,25,21)}else if(n===16){c.fillStyle=pgColors.crystal;c.fillRect(x+11,y+8,10,16);c.fillStyle='#dff8ff';c.fillRect(x+14,y+10,3,6)}}
+// pixel village
+for(const [x,y] of [[70,65],[490,75],[500,285]]){c.fillStyle=pgColors.house;c.fillRect(x,y,52,42);c.fillStyle=pgColors.roof;c.fillRect(x-5,y-10,62,14);c.fillStyle='#f7d98b';c.fillRect(x+8,y+8,10,10);c.fillRect(x+33,y+8,10,10);c.fillStyle='#553a2d';c.fillRect(x+21,y+23,11,19)}
+// path
+c.fillStyle='#c5ad70';c.fillRect(0,180,640,25);c.fillRect(300,0,25,400);
+// avatar shadow and pixel character
+c.fillStyle='#17202b66';c.fillRect(pg.x-10,pg.y+13,22,5);c.fillStyle='#27364d';c.fillRect(pg.x-8,pg.y-2,16,20);c.fillStyle='#e6b48a';c.fillRect(pg.x-7,pg.y-14,14,13);c.fillStyle='#4a3026';c.fillRect(pg.x-8,pg.y-16,16,5);c.fillStyle='#60a5fa';c.fillRect(pg.x-8,pg.y+2,16,7);c.fillStyle='#1e293b';c.fillRect(pg.x-7,pg.y+18,5,8);c.fillRect(pg.x+2,pg.y+18,5,8);c.fillStyle='#fff';c.fillRect(pg.x+2,pg.y-9,3,3);
+document.getElementById('coordLabel').textContent='X: '+Math.round(pg.x)+' · Y: '+Math.round(pg.y);document.getElementById('healthBar').style.width=pg.health+'%';document.getElementById('healthText').textContent=pg.health;document.getElementById('manaBar').style.width=pg.mana+'%';document.getElementById('manaText').textContent=pg.mana;document.getElementById('coinText').textContent=pg.coins;document.getElementById('zoneText').textContent=pg.zone;}
+function pixelTick(t){if(!pg.running)return;let d=pg.dir||((pg.keys.arrowup||pg.keys.w)?'up':(pg.keys.arrowdown||pg.keys.s)?'down':(pg.keys.arrowleft||pg.keys.a)?'left':(pg.keys.arrowright||pg.keys.d)?'right':null);if(pg.auto&&!d){pg.frame++;d=['up','right','down','left'][Math.floor(pg.frame/100)%4]}if(d){let v=pg.run?3.2:1.6;if(d==='up')pg.y-=v;if(d==='down')pg.y+=v;if(d==='left')pg.x-=v;if(d==='right')pg.x+=v;pg.x=Math.max(12,Math.min(628,pg.x));pg.y=Math.max(25,Math.min(390,pg.y));pg.zone=(pg.x>450&&pg.y<140)?'Kota Blok':(pg.x<150&&pg.y<130)?'Desa Pixel':'Padang Pixel';drawPixelWorld()}pg.raf=requestAnimationFrame(pixelTick)}
+function startPixelGame(){if(!pg.canvas)initPixelGame();pg.running=true;cancelAnimationFrame(pg.raf);pg.raf=requestAnimationFrame(pixelTick);gameLog('Petualangan dimulai! Jelajahi map dan cari kristal biru.');drawPixelWorld()}
+function stopGameMove(){pg.dir=null;pg.keys={};document.querySelectorAll('[data-dir]').forEach(b=>b.classList.remove('pressed'))}
+function toggleRun(){pg.run=!pg.run;document.getElementById('runBtn').textContent='🏃 Lari: '+(pg.run?'ON':'OFF');gameLog(pg.run?'Mode lari aktif.':'Mode lari nonaktif.')}
+function toggleAutoMove(){pg.auto=!pg.auto;document.getElementById('autoMoveBtn').textContent='Auto gerak: '+(pg.auto?'ON':'OFF');if(pg.auto)startPixelGame();gameLog(pg.auto?'Karakter bergerak otomatis dan memilih arah sendiri.':'Gerak otomatis dimatikan.')}
+function gameAction(a){if(a==='mine'){pg.items.stone++;pg.coins+=2;gameLog('Kamu menambang balok! +1 batu, +2 koin.')}else if(a==='attack'){pg.mana=Math.max(0,pg.mana-8);pg.coins+=1;gameLog('Serangan pixel dilepaskan. -8 mana, +1 koin.')}else if(a==='jump'){pg.y=Math.max(25,pg.y-18);setTimeout(()=>{pg.y=Math.min(390,pg.y+18);drawPixelWorld()},180);gameLog('Karakter melompat!')}else if(a==='heal'){if(pg.mana>=15){pg.mana-=15;pg.health=Math.min(100,pg.health+25);gameLog('Skill pulih digunakan. +25 nyawa, -15 mana.')}else gameLog('Mana tidak cukup untuk pulih.')}else if(a==='city'){pg.x=510;pg.y=100;pg.zone='Kota Blok';drawPixelWorld();gameLog('Tiba di Kota Blok. Jelajahi rumah dan kumpulkan sumber daya.')}drawPixelWorld()}
+function openGamePanel(type){const p=document.getElementById('gamePanel');const content={inventory:'<h3>🎒 Tas / Inventaris</h3><div class="game-modal-grid"><div class="game-item">🪵 Kayu<br><b>'+pg.items.wood+'</b></div><div class="game-item">🪨 Batu<br><b>'+pg.items.stone+'</b></div><div class="game-item">💎 Kristal<br><b>'+pg.items.crystal+'</b></div><div class="game-item">🪙 Koin<br><b>'+pg.coins+'</b></div></div>',character:'<h3>🧍 Karakter</h3><p>Petualang Balzy · Level 1</p><p>Nyawa: '+pg.health+'/100 · Mana: '+pg.mana+'/100</p><p>Kecepatan: '+(pg.run?'Lari':'Jalan')+' · Zona: '+pg.zone+'</p>',skills:'<h3>✨ Skill</h3><div class="game-modal-grid"><button class="game-btn" onclick="gameAction(&quot;heal&quot;)">Pulih · 15 mana</button><button class="game-btn" onclick="gameAction(&quot;attack&quot;)">Serangan · 8 mana</button><div class="game-item">Tambang<br>Pasif</div></div>',help:'<h3>❔ Bantuan & Kontrol</h3><ul><li>Gunakan tombol arah, WASD, atau panah keyboard untuk bergerak.</li><li>Aktifkan Auto gerak untuk membiarkan karakter memilih arah sendiri.</li><li>Tambang menambah batu dan koin; skill Pulih memulihkan nyawa.</li><li>Gunakan Kota untuk teleport ke desa blok.</li><li>Ini game 2D bergaya blok, bukan Minecraft resmi dan tidak memakai server multiplayer.</li></ul>'};p.innerHTML=content[type]||''}
+function gameLog(msg){const e=document.getElementById('gameLog');if(e)e.textContent=msg}
+function resetPixelGame(){pg.x=320;pg.y=200;pg.health=100;pg.mana=100;pg.coins=0;pg.items={wood:0,stone:0,crystal:0};pg.auto=false;pg.run=false;pg.zone='Padang Pixel';document.getElementById('autoMoveBtn').textContent='Auto gerak: OFF';document.getElementById('runBtn').textContent='🏃 Lari: OFF';openGamePanel('help');drawPixelWorld();startPixelGame();gameLog('Dunia direset. Selamat bermain!')}
+
+
+// Online Hub: connection diagnostics and browser-side REST API tester.
+function openOnlineFeature(card, key){
+  const section=document.getElementById('onlinePage');
+  if(!section)return;
+  section.querySelectorAll('[data-online-panel]').forEach(panel=>{panel.classList.remove('is-visible');panel.style.display='none'});
+  section.querySelectorAll('.feature').forEach(item=>{item.classList.remove('is-selected','is-pressed')});
+  if(card){card.classList.add('is-pressed');setTimeout(()=>card.classList.remove('is-pressed'),240);card.classList.add('is-selected')}
+  const panel=section.querySelector('[data-online-panel="'+key+'"]');
+  if(panel){panel.style.display='block';panel.classList.remove('is-visible');void panel.offsetWidth;panel.classList.add('is-visible');panel.scrollIntoView({behavior:'smooth',block:'start'})}
+  if(key==='connection')checkInternet();
+  if(key==='ip')lookupPublicIP();
+  if(key==='api')useApiExample('jsonplaceholder');
+}
+function setOnlineStatus(text, ok){const e=document.getElementById('onlineStatus');if(!e)return;e.innerHTML='<i class="dot"></i> '+escapeHTML(text);e.style.color=ok?'var(--green)':'#ffb4bd';e.style.borderColor=ok?'#74e0ad38':'#ff647838';}
+async function checkInternet(){
+ const browser=document.getElementById('browserOnline'),latency=document.getElementById('onlineLatency'),checked=document.getElementById('onlineCheckedAt');
+ browser.textContent=navigator.onLine?'Online menurut browser':'Offline menurut browser';latency.textContent='Menguji…';checked.textContent=new Date().toLocaleTimeString();
+ if(!navigator.onLine){setOnlineStatus('Offline',false);latency.textContent='Tidak tersedia';return}
+ const start=performance.now();try{const r=await fetch('https://www.google.com/generate_204',{method:'GET',mode:'no-cors',cache:'no-store'});latency.textContent=Math.round(performance.now()-start)+' ms (perkiraan)';setOnlineStatus('Browser terhubung',true)}catch(e){latency.textContent='Gagal menjangkau endpoint';setOnlineStatus('Koneksi terbatas / endpoint gagal',false)}
+}
+async function lookupPublicIP(){const out=document.getElementById('publicIPOutput');out.textContent='Meminta IP publik…';try{const r=await fetch('https://api.ipify.org?format=json',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const data=await r.json();out.textContent='IP publik: '+(data.ip||'Tidak tersedia')+'\nSumber: api.ipify.org'}catch(e){out.textContent='Gagal mengambil IP publik. Periksa koneksi atau pemblokir jaringan.\nDetail: '+e.message}}
+function useApiExample(type){const url=document.getElementById('apiUrl'),method=document.getElementById('apiMethod'),body=document.getElementById('apiBody'),headers=document.getElementById('apiHeaders');if(type==='post'){url.value='https://jsonplaceholder.typicode.com/posts';method.value='POST';headers.value=JSON.stringify({'Accept':'application/json','Content-Type':'application/json'},null,2);body.value=JSON.stringify({title:'Halo Balzy',body:'Contoh request POST',userId:1},null,2)}else{url.value='https://jsonplaceholder.typicode.com/todos/1';method.value='GET';headers.value=JSON.stringify({'Accept':'application/json'},null,2);body.value=''}clearApiResult()}
+function clearApiResult(){document.getElementById('apiResponseStatus').textContent='Belum ada request.';document.getElementById('apiResponseTime').textContent='—';document.getElementById('apiResponseBody').textContent='Respons akan muncul di sini.'}
+async function sendApiRequest(){
+ const urlEl=document.getElementById('apiUrl'),method=document.getElementById('apiMethod').value,btn=document.getElementById('apiSendBtn');const status=document.getElementById('apiResponseStatus'),time=document.getElementById('apiResponseTime'),out=document.getElementById('apiResponseBody');
+ let url;try{url=new URL(urlEl.value.trim());if(!['http:','https:'].includes(url.protocol))throw new Error('Hanya URL HTTP/HTTPS yang didukung.')}catch(e){status.textContent='URL tidak valid: '+e.message;return}
+ let headers;try{headers=JSON.parse(document.getElementById('apiHeaders').value||'{}');if(!headers||Array.isArray(headers)||typeof headers!=='object')throw new Error('Headers harus berupa object JSON.')}catch(e){status.textContent='Headers JSON tidak valid: '+e.message;return}
+ const opts={method,headers};if(['POST','PUT','PATCH'].includes(method)){const raw=document.getElementById('apiBody').value.trim();if(raw)opts.body=raw}
+ btn.disabled=true;btn.textContent='Mengirim…';status.textContent='Request berjalan…';time.textContent='—';out.textContent='Menunggu respons…';const started=performance.now();
+ try{const response=await fetch(url.href,opts);const elapsed=Math.round(performance.now()-started);time.textContent=elapsed+' ms';status.textContent='HTTP '+response.status+' '+response.statusText+' · '+(response.ok?'OK':'Non-2xx');let text=await response.text();try{text=JSON.stringify(JSON.parse(text),null,2)}catch(_){}out.textContent=text||'(Body kosong)';}
+ catch(e){time.textContent=Math.round(performance.now()-started)+' ms';status.textContent='Request gagal';out.textContent='Browser tidak dapat membaca respons. Penyebab umum: CORS, jaringan, TLS, atau endpoint tidak tersedia.\nDetail: '+e.message}
+ finally{btn.disabled=false;btn.textContent='▶ Kirim request'}
+}
+window.addEventListener('online',()=>{const e=document.getElementById('browserOnline');if(e)e.textContent='Online menurut browser'});window.addEventListener('offline',()=>{const e=document.getElementById('browserOnline');if(e)e.textContent='Offline menurut browser'});
+
+initPixelGame();
+const sample = document.getElementById('editor').value;
+let previewEnabled = true, previewTimer = null, musicIndex = 0;
+const playlists = {
+ lofi:['https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'],
+ ambient:['https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3'],
+ jazz:['https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3']
+};
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>t.style.display='none',3000)}
+function go(id,nav){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const page=document.getElementById(id);if(page){page.classList.add('active');void page.offsetWidth}document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===id));closeSidebar();window.scrollTo({top:0,behavior:'smooth'});if(id==='codePage')runCode();if(id==='onlinePage'){const sec=document.getElementById('onlinePage');sec.querySelectorAll('[data-online-panel]').forEach(p=>{p.classList.remove('is-visible');p.style.display='none'});sec.querySelectorAll('.feature').forEach(c=>c.classList.remove('is-selected','is-pressed'))}if(id==='chatPage'){const panel=document.getElementById('globalChatPanel');if(panel){panel.style.display='none';panel.classList.remove('is-visible')}document.querySelectorAll('#chatCards .feature').forEach(c=>c.classList.remove('is-selected','is-pressed'))}const gp=document.getElementById(id);if(gp)gp.querySelectorAll('[data-generic-panel]').forEach(p=>{p.style.display='none';p.classList.remove('is-visible')});if(gp)gp.querySelectorAll('[data-generic-launch]').forEach(c=>c.classList.remove('is-selected','is-pressed'))}
+function toggleSidebar(){const s=document.getElementById('sidebar'),b=document.getElementById('sidebarBackdrop');s.classList.toggle('open');b.classList.toggle('show')}
+function closeSidebar(){const s=document.getElementById('sidebar'),b=document.getElementById('sidebarBackdrop');if(s)s.classList.remove('open');if(b)b.classList.remove('show')}
+function runCode(){
+ const code=document.getElementById('editor').value, mode=document.getElementById('editorMode').value, frame=document.getElementById('preview');
+ const status=document.getElementById('previewStatus');
+ if(!previewEnabled){status.textContent='Preview dimatikan. Tekan Preview: OFF untuk mengaktifkan.';return}
+ if(mode==='html'){frame.srcdoc=code}
+ else if(mode==='javascript'){frame.srcdoc='<!doctype html><meta charset="utf-8"><body style="font:14px monospace;padding:16px"><h3>JavaScript output</h3><pre id="out"></pre><script>const log=(...x)=>document.getElementById("out").textContent+=x.join(" ")+"\\n";console.log=log;try{'+code+'}catch(e){log("Error:",e.message)}<\\/script>'}
+ else if(mode==='css'){frame.srcdoc='<!doctype html><style>'+code+'</style><main class="demo"><h1>CSS Preview</h1><p>Edit CSS untuk melihat perubahan.</p><button>Button</button></main>'}
+ else if(mode==='json'){try{frame.srcdoc='<pre style="font:14px monospace;white-space:pre-wrap;padding:18px">'+escapeHTML(JSON.stringify(JSON.parse(code),null,2))+'</pre>'}catch(e){frame.srcdoc='<pre style="color:#b91c1c;padding:18px">JSON Error: '+escapeHTML(e.message)+'</pre>'}}
+ else if(mode==='markdown'){frame.srcdoc='<article style="font:16px/1.6 system-ui;max-width:760px;margin:25px auto;padding:10px">'+markdownLite(code)+'</article>'}
+ else if(mode==='python'){
+   frame.srcdoc='<!doctype html><meta charset="utf-8"><style>body{font:14px monospace;padding:16px}pre{white-space:pre-wrap}</style><h3>Python output (Pyodide)</h3><pre id="out">Memuat Python runtime...</pre><script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"><\\/script><script>async function go(){const o=document.getElementById("out");try{const py=await loadPyodide();let logs=[];py.setStdout({batched:s=>logs.push(s)});await py.runPythonAsync('+JSON.stringify(code)+');o.textContent=logs.join("\\n")||"Selesai (tidak ada output)."}catch(e){o.textContent="Python error: "+e.message}}go()<\\/script>'
+ }
+ status.textContent='Preview diperbarui · '+mode.toUpperCase(); 
+}
+function escapeHTML(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function markdownLite(s){return escapeHTML(s).replace(/^### (.*)$/gm,'<h3>$1</h3>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/^# (.*)$/gm,'<h1>$1</h1>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\n/g,'<br>')}
+function togglePreview(){previewEnabled=!previewEnabled;document.querySelector('[onclick="togglePreview()"]').textContent='Preview: '+(previewEnabled?'ON':'OFF');if(previewEnabled)runCode();else document.getElementById('previewStatus').textContent='Preview dimatikan.'}
+function closePreview(){document.getElementById('preview').classList.toggle('hidden');toast('Panel preview ditampilkan/disembunyikan')}
+function resetCode(){document.getElementById('editorMode').value='html';document.getElementById('editor').value=sample;runCode()}
+function applyTemplate(name){
+ const templates={
+ landing:['html','<!doctype html>\n<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:system-ui;background:#111827;color:white;padding:40px}.card{max-width:560px;margin:auto;padding:30px;border-radius:20px;background:linear-gradient(135deg,#ef476f,#6930c3)}button{padding:12px 18px;border:0;border-radius:10px}</style></head><body><div class="card"><h1>Halo, developer! 🚀</h1><p>Mulai bangun ide hebatmu di Balzy Studio.</p><button onclick="alert(\'Berhasil!\')">Coba saya</button></div></body></html>'],
+ counter:['javascript','let count = 0;\nfunction increment(){ count++; console.log("Count:", count); }\nincrement();\nincrement();'],
+ css:['css','body{background:#101827;color:white;font-family:system-ui}.demo{padding:30px;border-radius:22px;background:linear-gradient(135deg,#f43f5e,#7c3aed);box-shadow:0 20px 50px #0005}button{padding:12px 20px;border:0;border-radius:10px}'],
+ python:['python','for i in range(1, 6):\n    print("Halo Python", i)'],
+ json:['json','{\n  "project": "Balzy Studio",\n  "version": 2,\n  "features": ["live preview", "templates", "AI helper"]\n}'],
+ markdown:['markdown','# Catatan Proyek\n\n## Tujuan\nMembangun aplikasi web keren.\n\n- [ ] Rancang UI\n- [ ] Tambahkan fitur\n\n**Selamat coding!**']
+ };
+ if(!templates[name])return;document.getElementById('editorMode').value=templates[name][0];document.getElementById('editor').value=templates[name][1];runCode();
+}
+document.getElementById('templateSelect').addEventListener('change',e=>{if(e.target.value)applyTemplate(e.target.value);e.target.value=''});
+document.getElementById('editorMode').addEventListener('change',()=>{if(previewEnabled)runCode()});
+document.getElementById('editor').addEventListener('input',()=>{if(!document.getElementById('liveToggle').checked)return;clearTimeout(previewTimer);previewTimer=setTimeout(runCode,180)});
+function helpWithCode(){
+ const q=document.getElementById('aiPrompt').value.trim(),code=document.getElementById('editor').value,out=document.getElementById('aiOutput');
+ if(!q){out.textContent='Tulis dulu masalah atau fitur yang ingin dibuat.';return}
+ const lines=code.split('\n').length, mode=document.getElementById('editorMode').value;
+ let suggestions=['Bahasa aktif: '+mode.toUpperCase()+'.','Panjang kode: '+lines+' baris.'];
+ if(/error|bug|gagal|rusak/i.test(q))suggestions.push('Periksa pesan error di console browser (menu Developer Tools), lalu cek tanda kurung, tanda kutip, dan nama variabel.');
+ if(/responsive|mobile|hp/i.test(q))suggestions.push('Gunakan meta viewport dan CSS @media (max-width: 700px) untuk layout ponsel.');
+ if(/preview|tampil/i.test(q))suggestions.push('Pastikan elemen HTML memiliki selector yang cocok dengan CSS dan JavaScript dijalankan setelah elemen tersedia.');
+ suggestions.push('Untuk jawaban AI generatif yang lebih lengkap, tekan “Buka ChatGPT”; helper lokal ini tidak mengirim kode ke server.');
+ out.textContent=suggestions.join('\n\n')+'\n\nPrompt kamu: '+q;
+}
+function openAI(){const q=document.getElementById('aiPrompt').value.trim()||'Bantu saya memperbaiki atau mengembangkan kode berikut: '+document.getElementById('editor').value.slice(0,2500);window.open('https://chatgpt.com/?q='+encodeURIComponent(q),'_blank','noopener')}
+function closeMusic(){document.getElementById('musicPlayer').classList.toggle('hidden');document.getElementById('musicStatus').textContent='Player disembunyikan/ditampilkan.'}
+function playMusic(){const player=document.getElementById('musicPlayer'),list=playlists[document.getElementById('musicSelect').value];if(!player.src||!player.src.includes(encodeURIComponent(list[musicIndex]))){player.src=list[musicIndex]}player.play().then(()=>document.getElementById('musicStatus').textContent='Memutar playlist: '+document.getElementById('musicSelect').selectedOptions[0].text).catch(()=>document.getElementById('musicStatus').textContent='Audio gagal diputar. Coba tombol Play pada kontrol audio atau pilih track lain.')}
+function pauseMusic(){document.getElementById('musicPlayer').pause();document.getElementById('musicStatus').textContent='Musik dijeda.'}
+function nextMusic(){const list=playlists[document.getElementById('musicSelect').value];musicIndex=(musicIndex+1)%list.length;document.getElementById('musicPlayer').src=list[musicIndex];playMusic()}
+document.getElementById('musicSelect').addEventListener('change',()=>{musicIndex=0;document.getElementById('musicPlayer').src=playlists[document.getElementById('musicSelect').value][0];document.getElementById('musicStatus').textContent='Playlist dipilih. Tekan Play untuk mulai.'});
+function resetCode(){document.getElementById('editorMode').value='html';document.getElementById('editor').value=sample;runCode()}
+function downloadCode(){const mode=document.getElementById('editorMode').value;const ext={html:'html',javascript:'js',css:'css',python:'py',json:'json',markdown:'md'}[mode]||'txt';const mime={html:'text/html',javascript:'text/javascript',css:'text/css',python:'text/x-python',json:'application/json',markdown:'text/markdown'}[mode]||'text/plain';const blob=new Blob([document.getElementById('editor').value],{type:mime+';charset=utf-8'});const a=document.createElement('a');const u=URL.createObjectURL(blob);a.href=u;a.download='balzy-project.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+async function translateText(){const textValue=document.getElementById('transInput').value.trim();if(!textValue)return toast('Masukkan teks terlebih dahulu');const from=document.getElementById('fromLang').value==='auto'?'en':document.getElementById('fromLang').value;const to=document.getElementById('toLang').value;const out=document.getElementById('transOutput');out.textContent='Menerjemahkan...';try{const q=new URLSearchParams({q:textValue,langpair:from+'|'+to});const r=await fetch('https://api.mymemory.translated.net/get?'+q);if(!r.ok)throw new Error('HTTP '+r.status);const d=await r.json();out.textContent=d.responseData?.translatedText||'Tidak ada hasil.';if(d.responseStatus&&d.responseStatus!==200)out.textContent+='\\n\\nAPI notice: '+d.responseDetails}catch(e){out.textContent='Terjemahan gagal: '+e.message+'\\nCoba lagi atau gunakan layanan lain.'}}
+function clearMedia(){document.getElementById('mediaUrl').value='';document.getElementById('mediaResults').replaceChildren();document.getElementById('mediaOutput').textContent='Response dikosongkan.';document.getElementById('mediaStatus').textContent='Siap menerima URL media.'}
+function collectMediaLinks(v,found=[],seen=new Set(),path=''){
+ if(v==null)return found;
+ if(typeof v==='string'){if(/^https?:\/\/\S+/i.test(v)){const u=v.replace(/[),.;]+$/,'');if(/\.(mp4|m3u8|webm|mov|m4v)(\?|#|$)/i.test(u)||/video|download|media|play|stream|url/i.test(path)){if(!seen.has(u)){seen.add(u);found.push({url:u,label:path||'Media URL'})}}}return found}
+ if(Array.isArray(v)){v.forEach((x,i)=>collectMediaLinks(x,found,seen,path+' '+i));return found}
+ if(typeof v==='object')Object.entries(v).forEach(([k,x])=>collectMediaLinks(x,found,seen,path+' '+k));
+ return found
+}
+function renderMediaResults(data){
+ const root=document.getElementById('mediaResults');root.replaceChildren();const links=collectMediaLinks(data);
+ if(!links.length){document.getElementById('mediaStatus').textContent='API merespons, tetapi URL media langsung tidak ditemukan. Periksa raw response.';return}
+ document.getElementById('mediaStatus').textContent='Ditemukan '+links.length+' link media.';
+ links.forEach((it,i)=>{const c=document.createElement('article');c.className='media-card';const t=document.createElement('div');t.className='smallnote';t.textContent=it.label.trim()||'Media '+(i+1);c.appendChild(t);
+ if(/\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(it.url)){const v=document.createElement('video');v.controls=true;v.preload='metadata';v.playsInline=true;v.src=it.url;c.appendChild(v)}
+ else{const n=document.createElement('p');n.className='smallnote';n.textContent='Preview inline tidak didukung untuk format ini.';c.appendChild(n)}
+ const a=document.createElement('a');a.href=it.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Buka media ↗';a.style.display='block';a.style.margin='8px 0';c.appendChild(a);
+ const d=document.createElement('button');d.className='btn primary';d.textContent='↓ Download';d.style.width='100%';d.onclick=()=>{const x=document.createElement('a');x.href=it.url;x.download='';x.target='_blank';x.rel='noopener';document.body.appendChild(x);x.click();x.remove()};c.appendChild(d);root.appendChild(c)})
+}
+function clearOutput(id){document.getElementById(id).textContent='Dikosongkan.'}
+async function copyOutput(id){const text=document.getElementById(id).innerText;try{await navigator.clipboard.writeText(text);toast('Disalin')}catch(e){toast('Clipboard tidak tersedia di konteks ini')}}
+function clearScan(){document.getElementById('scanFile').value='';document.getElementById('scanSummary').textContent='Belum ada analisis.';document.getElementById('scanDetails').innerHTML='';toast('File reference dihapus dari halaman')}
+async function scanFile(){const input=document.getElementById('scanFile'),file=input.files[0],summary=document.getElementById('scanSummary'),details=document.getElementById('scanDetails');details.innerHTML='';if(!file)return toast('Pilih file terlebih dahulu');summary.textContent='Membaca file secara lokal...';try{const max=50*1024*1024;if(file.size>max){summary.textContent='File terlalu besar untuk pemeriksaan browser demo (batas 50 MB).';return}const buf=await file.arrayBuffer();const bytes=new Uint8Array(buf);let str='';const chunk=32768;for(let i=0;i<bytes.length;i+=chunk)str+=String.fromCharCode(...bytes.subarray(i,Math.min(i+chunk,bytes.length)));const printable=str.replace(/[^\x20-\x7E\r\n\t]/g,' ');const patterns=[['Indikator aksesibilitas / overlay',/SYSTEM_ALERT_WINDOW|AccessibilityService|BIND_ACCESSIBILITY_SERVICE|TYPE_APPLICATION_OVERLAY|draw over other apps/ig],['Indikator ransomware / enkripsi',/ransom|encrypt(ed|ion)? files|decrypt your files|bitcoin|\.locked|\.encrypted|AES\/CBC|Cipher\.getInstance/ig],['Indikator fullscreen / lock task',/startLockTask|setLockTaskPackages|FLAG_FULLSCREEN|immersiveSticky|DeviceAdminReceiver/ig],['Indikator eksekusi / command',/Runtime\.getRuntime|ProcessBuilder|powershell(?:\.exe)?|cmd\.exe|\/system\/bin\/sh|exec\(/ig],['Indikator unduh / jaringan',/http:\/\/|https:\/\/|DexClassLoader|loadUrl\(|DownloadManager/ig],['Indikator permission sensitif',/READ_SMS|RECEIVE_SMS|SEND_SMS|READ_CONTACTS|RECORD_AUDIO|REQUEST_INSTALL_PACKAGES|QUERY_ALL_PACKAGES|READ_CALL_LOG/ig]];const found=[];for(const [label,re] of patterns){const matches=printable.match(re)||[];if(matches.length)found.push({label,count:matches.length,samples:[...new Set(matches.map(x=>x.slice(0,90)))].slice(0,8)})}const phones=[...new Set((printable.match(/(?:\+\d{1,3}[\s.-]?)?(?:\(?\d{2,4}\)?[\s.-]?)\d{3,4}[\s.-]?\d{3,5}/g)||[]).map(x=>x.trim()).filter(x=>x.replace(/\D/g,'').length>=9&&x.replace(/\D/g,'').length<=15))].slice(0,15);const ext=file.name.split('.').pop().toLowerCase();const zip=bytes.length>3&&bytes[0]===0x50&&bytes[1]===0x4b;const mz=bytes.length>1&&bytes[0]===0x4d&&bytes[1]===0x5a;const magic=zip?'ZIP-like header':mz?'MZ/PE-like header':'Unknown / not recognized';summary.textContent='File: '+file.name+'\\nSize: '+(file.size/1024).toFixed(1)+' KB\\nExtension: .'+ext+'\\nHeader: '+magic+'\\nSHA-256: '+await sha256(buf)+'\\n\\nFound '+found.length+' indicator categories and '+phones.length+' possible phone-like strings.\\n\\nThis is NOT a malware verdict. A clean result does not mean the file is safe.';if(!found.length)details.innerHTML+='<div class="output good">No matching indicator strings found in the readable byte content.</div>';found.forEach(item=>{const el=document.createElement('div');el.className='output';el.style.marginBottom='9px';el.innerHTML='<b class="danger"></b>';el.firstChild.textContent=item.label+' ('+item.count+' matches)';const p=document.createElement('div');p.textContent='Samples: '+item.samples.join(', ');el.appendChild(p);details.appendChild(el)});if(phones.length){const el=document.createElement('div');el.className='output';const b=document.createElement('b');b.textContent='Possible phone-like strings (unverified)';el.appendChild(b);const p=document.createElement('div');p.textContent=phones.join('\\n');el.appendChild(p);details.appendChild(el)}else{const el=document.createElement('div');el.className='output';el.textContent='No obvious phone-like strings found.';details.appendChild(el)}if(ext==='apk'&&zip)details.innerHTML+='<div class="output">APK detected as ZIP-like. This demo does not decode AndroidManifest.xml or DEX bytecode; use a proper static-analysis tool for deeper inspection.</div>';toast('Analisis lokal selesai')}catch(e){summary.textContent='Analisis gagal: '+e.message}}
+async function sha256(buf){try{const hash=await crypto.subtle.digest('SHA-256',buf);return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('')}catch(e){return 'Unavailable (requires secure context)'}}
+
+const codingSnippets = {
+ navbar: {mode:'html', code:`<nav class="site-nav">
+  <a class="brand" href="#">MySite</a>
+  <button class="menu-toggle" aria-expanded="false" onclick="document.querySelector('.site-nav').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') !== 'true')">☰</button>
+  <div class="nav-items"><a href="#home">Home</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</nav>
+<style>
+.site-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;background:#111827;color:white;font:16px system-ui;border-radius:12px}.site-nav a{color:inherit;text-decoration:none}.brand{font-weight:800}.nav-items{display:flex;gap:18px}.menu-toggle{display:none;background:transparent;color:inherit;border:0;font-size:22px}@media(max-width:520px){.menu-toggle{display:block}.nav-items{display:none;position:absolute;top:65px;left:18px;right:18px;padding:16px;background:#111827;border-radius:12px;flex-direction:column}.site-nav.open .nav-items{display:flex}}
+</style>`},
+ localstorage: {mode:'javascript', code:`// Simpan data di browser
+const saveSetting = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+const readSetting = (key, fallback = null) => {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : JSON.parse(value);
+  } catch (error) {
+    console.error('Gagal membaca data:', error);
+    return fallback;
+  }
+};
+
+saveSetting('theme', 'dark');
+console.log(readSetting('theme', 'light'));`},
+ fetch: {mode:'javascript', code:`async function getData(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Request gagal:', error.message);
+    throw error;
+  }
+}
+
+getData('https://jsonplaceholder.typicode.com/todos/1')
+  .then(data => console.log(data))
+  .catch(() => console.log('Coba lagi nanti.'));`},
+ debounce: {mode:'javascript', code:`function debounce(callback, delay = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => callback(...args), delay);
+  };
+}
+
+const searchLater = debounce(query => {
+  console.log('Cari:', query);
+}, 350);
+searchLater('balzy');`},
+ copy: {mode:'html', code:`<button id="copyButton">Salin teks</button>
+<script>
+document.getElementById('copyButton').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText('Teks yang ingin disalin');
+    document.getElementById('copyButton').textContent = 'Tersalin ✓';
+  } catch (error) {
+    alert('Clipboard tidak tersedia di browser ini.');
+  }
+});
+<\/script>`},
+ media: {mode:'css', code:`.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+}
+.card {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: white;
+  color: #111827;
+  box-shadow: 0 8px 24px #0000000d;
+}
+.card img { width: 100%; height: auto; border-radius: 10px; }`}
+};
+function renderSnippet(){const key=document.getElementById('snippetSelect')?.value;const item=codingSnippets[key];if(!item)return;document.getElementById('snippetPreview').textContent=item.code;}
+function insertSnippet(){const item=codingSnippets[document.getElementById('snippetSelect').value];if(!item)return;const editor=document.getElementById('editor');editor.value+=(editor.value.trim()?'\n\n':'')+item.code;document.getElementById('editorMode').value=item.mode;if(previewEnabled)runCode();toast('Snippet ditambahkan ke editor ('+item.mode.toUpperCase()+')');}
+async function copySnippet(){const item=codingSnippets[document.getElementById('snippetSelect').value];if(!item)return;try{await navigator.clipboard.writeText(item.code);toast('Snippet disalin')}catch(e){toast('Clipboard tidak tersedia. Pilih dan salin teks dari preview.')}}
+document.getElementById('snippetSelect').addEventListener('change',renderSnippet);
+renderSnippet();
+
+runCode();
+
+
+// Card-first reveal for menus that previously showed every tool immediately.
+function openGenericFeature(card,pageId,key){
+ const root=document.getElementById(pageId);if(!root)return;
+ root.querySelectorAll('[data-generic-panel]').forEach(p=>{p.style.display='none';p.classList.remove('is-visible')});
+ root.querySelectorAll('[data-generic-launch]').forEach(c=>c.classList.remove('is-selected','is-pressed'));
+ if(card){card.classList.add('is-selected','is-pressed');setTimeout(()=>card.classList.remove('is-pressed'),220)}
+ const panel=root.querySelector('[data-generic-panel="'+key+'"]');if(panel){panel.style.display='block';void panel.offsetWidth;panel.classList.add('is-visible');panel.scrollIntoView({behavior:'smooth',block:'start'})}if(pageId==='codePage')runCode();if(pageId==='gamePage')drawPixelWorld();
+}
+function setupCardFirstMenus(){
+ const cfg={codePage:[['Editor & Live Preview','Tulis kode, jalankan preview, dan unduh hasil.','‹›'],['AI Helper & Music','Bantuan coding dan musik fokus.','✦'],['Snippet Vault','Simpan dan sisipkan potongan kode.','{}']],translatePage:[['Translator','Terjemahkan teks dengan layanan online.','文']],scanPage:[['Static File Scan','Analisis indikator file secara lokal.','◇']],gamePage:[['Pixel Quest','Buka dunia blok dan kontrol karakter.','▦']],profilePage:[['Profile','Pengaturan workspace dan informasi lokal.','○']],devPage:[['Developer Info','Informasi aplikasi Balzy Studio.','✦']]};
+ Object.entries(cfg).forEach(([id,defs])=>{const root=document.getElementById(id);if(!root||root.dataset.cardified)return;const head=root.querySelector(':scope > .section-head');if(!head)return;
+  const content=[...root.children].filter(el=>el!==head);if(!content.length)return;
+  const grid=document.createElement('div');grid.className='feature-grid-clean';grid.dataset.genericGrid='1';
+  content.forEach((el,i)=>{const key='section'+i,wrap=document.createElement('div');wrap.className='page-feature-panel';wrap.dataset.genericPanel=key;el.parentNode.insertBefore(wrap,el);wrap.appendChild(el);const def=defs[i]||defs[defs.length-1];const card=document.createElement('button');card.type='button';card.className='feature feature-launch';card.dataset.genericLaunch='1';card.innerHTML='<span class="feature-icon">'+escapeHTML(def[2])+'</span><b>'+escapeHTML(def[0])+'</b><p>'+escapeHTML(def[1])+'</p>';card.addEventListener('click',()=>openGenericFeature(card,id,key));grid.appendChild(card)});
+  head.after(grid);root.dataset.cardified='1';
+ });
+}
+
+// Firebase Global Chat: project configuration supplied by the Balzy Studio owner.
+const BALZY_FIREBASE_CONFIG_KEY='balzy.firebase.webconfig.v1';
+const BALZY_DEFAULT_FIREBASE_CONFIG={
+ apiKey:'AIzaSyCaHEFAXJxQ13t-oNq9s99sltNamldLUzg',
+ authDomain:'balzystudio.firebaseapp.com',
+ projectId:'balzystudio',
+ storageBucket:'balzystudio.firebasestorage.app',
+ messagingSenderId:'600436000882',
+ appId:'1:600436000882:web:9b75e5996c13245c475aeb',
+ measurementId:'G-QFMGMTCMJQ'
+};
+let balzyFirebaseApp=null,balzyAuth=null,balzyDb=null,balzyUser=null,balzyMessagesUnsub=null,balzyFirebaseReady=false,balzySending=false,balzyLastSent=0;
+function openChatFeature(card){const panel=document.getElementById('globalChatPanel');if(!panel)return;panel.style.display='block';panel.classList.remove('is-visible');void panel.offsetWidth;panel.classList.add('is-visible');document.querySelectorAll('#chatCards .feature').forEach(c=>c.classList.remove('is-selected','is-pressed'));if(card){card.classList.add('is-selected','is-pressed');setTimeout(()=>card.classList.remove('is-pressed'),220)}panel.scrollIntoView({behavior:'smooth',block:'start'});const saved=JSON.stringify(BALZY_DEFAULT_FIREBASE_CONFIG);const setup=document.getElementById('firebaseSetupBox');if(setup)setup.classList.add('hidden');connectBalzyFirebase(saved);}
+function setChatStatus(msg,good=false){const e=document.getElementById('firebaseChatStatus');if(e)e.textContent=msg;const d=e?.previousElementSibling;if(d&&d.classList.contains('dot'))d.style.background=good?'var(--green)':'#fbbf24';const st=document.getElementById('firebaseSetupStatus');if(st)st.textContent=msg;const ps=document.getElementById('profileFirebaseStatus');if(ps&&msg){ps.textContent=good?'Terhubung':(msg.length>46?msg.slice(0,43)+'…':msg);ps.title=msg;}}
+function balzyWithTimeout(promise,label,ms=15000){return Promise.race([promise,new Promise((_,reject)=>setTimeout(()=>reject(new Error(label+' melewati batas waktu '+Math.round(ms/1000)+' detik. Periksa internet, domain HTTPS, dan pengaturan Firebase.')),ms))]);}
+function loadFirebaseCompat(){return new Promise((resolve,reject)=>{if(window.firebase?.firestore){resolve(window.firebase);return}const urls=['https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js','https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js','https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js'];let i=0;const next=()=>{if(i>=urls.length){window.firebase?.firestore?resolve(window.firebase):reject(new Error('Firebase SDK tidak tersedia'));return}const script=document.createElement('script');script.src=urls[i++];script.onload=next;script.onerror=()=>reject(new Error('Gagal memuat Firebase SDK. Periksa koneksi atau blokir jaringan.'));document.head.appendChild(script)};next()})}
+async function configureBalzyFirebase(){const raw=document.getElementById('firebaseConfigInput').value.trim();let cfg;try{cfg=JSON.parse(raw);if(!cfg.apiKey||!cfg.projectId||!cfg.appId)throw new Error('Config perlu apiKey, projectId, dan appId.')}catch(e){setChatStatus('Config JSON tidak valid: '+e.message);return}try{localStorage.setItem(BALZY_FIREBASE_CONFIG_KEY,JSON.stringify(cfg));await connectBalzyFirebase(JSON.stringify(cfg))}catch(e){setChatStatus('Gagal menyimpan config lokal: '+e.message)}}
+async function connectBalzyFirebase(raw){
+ const profileStatus=document.getElementById('profileFirebaseStatus');
+ try{
+  balzyFirebaseReady=false;
+  setChatStatus('Tahap 1/4 · Memuat Firebase SDK…');
+  const setupBox=document.getElementById('firebaseSetupBox');if(setupBox)setupBox.classList.add('hidden');
+  await balzyWithTimeout(loadFirebaseCompat(),'Memuat Firebase SDK',15000);
+  const cfg=JSON.parse(raw);
+  if(!cfg.apiKey||!cfg.authDomain||!cfg.projectId||!cfg.appId)throw new Error('Konfigurasi Firebase tidak lengkap.');
+  if(!balzyFirebaseApp||balzyFirebaseApp.options.projectId!==cfg.projectId){
+   if(balzyMessagesUnsub){balzyMessagesUnsub();balzyMessagesUnsub=null;}
+   balzyFirebaseApp=window.firebase.apps.find(a=>a.options.projectId===cfg.projectId)||window.firebase.initializeApp(cfg,'balzy-'+cfg.projectId);
+   balzyAuth=balzyFirebaseApp.auth();balzyDb=balzyFirebaseApp.firestore();
+  }
+  setChatStatus('Tahap 2/4 · Login Guest anonim…');
+  if(balzyAuth.currentUser)balzyUser=balzyAuth.currentUser;
+  else {const cred=await balzyWithTimeout(balzyAuth.signInAnonymously(),'Login Anonymous Authentication',15000);balzyUser=cred.user;}
+  if(!balzyUser||!balzyUser.uid)throw new Error('Login selesai tetapi UID Guest tidak ditemukan.');
+  const uid=balzyUser.uid,profileRef=balzyDb.collection('users').doc(uid);
+  setChatStatus('Tahap 3/4 · Memeriksa profil Firestore…');
+  const profileSnap=await balzyWithTimeout(profileRef.get(),'Membaca profil Firestore',15000);
+  let username=profileSnap.exists?profileSnap.data().username:'';
+  if(!username)username='Guest-'+uid.slice(0,5).toUpperCase();
+  const localNick=localStorage.getItem('balzy.chat.nickname.'+uid);if(localNick)username=localNick;
+  await balzyWithTimeout(profileRef.set({uid,username,provider:'anonymous',createdAt:profileSnap.exists?(profileSnap.data().createdAt||window.firebase.firestore.FieldValue.serverTimestamp()):window.firebase.firestore.FieldValue.serverTimestamp(),lastSeenAt:window.firebase.firestore.FieldValue.serverTimestamp()},{merge:true}),'Menyimpan profil Firestore',15000);
+  balzyFirebaseReady=true;
+  document.getElementById('chatRoomBox').classList.remove('hidden');document.getElementById('chatAccountLabel').textContent=username;document.getElementById('chatNickname').value=username;document.getElementById('chatUidLabel').textContent=uid;document.getElementById('chatRealtimeLabel').textContent='Aktif';
+  const pName=document.getElementById('profileDisplayName'),pType=document.getElementById('profileAccountType'),pUid=document.getElementById('profileFirebaseUid'),pAvatar=document.getElementById('profileAvatar');
+  if(pName)pName.textContent=username;if(pType)pType.textContent='Akun Firebase anonim · otomatis';if(pUid)pUid.textContent=uid;if(pAvatar)pAvatar.textContent=(username.charAt(0)||'G').toUpperCase();
+  setChatStatus('Tahap 4/4 · Terhubung. Akun Guest aktif.',true);subscribeBalzyMessages();
+ }catch(e){
+  balzyFirebaseReady=false;const msg='Koneksi gagal: '+(e?.code?e.code+' — ':'')+(e?.message||String(e));
+  setChatStatus(msg);if(profileStatus){profileStatus.textContent='Gagal terhubung';profileStatus.title=msg;}
+  const pType=document.getElementById('profileAccountType');if(pType)pType.textContent=msg;
+  const room=document.getElementById('chatRoomBox');if(room)room.classList.add('hidden');
+  console.error('[Balzy Firebase]',e);
+ }
+}
+function subscribeBalzyMessages(){if(balzyMessagesUnsub)balzyMessagesUnsub();const list=document.getElementById('chatMessages');list.innerHTML='<div class="chat-empty">Memuat pesan…</div>';balzyMessagesUnsub=balzyDb.collection('globalMessages').orderBy('createdAt','asc').limitToLast(100).onSnapshot(snap=>{list.replaceChildren();if(snap.empty){const e=document.createElement('div');e.className='chat-empty';e.textContent='Belum ada pesan. Jadilah yang pertama menyapa!';list.appendChild(e)}snap.forEach(doc=>{const d=doc.data(),wrap=document.createElement('div');wrap.className='chat-message'+(d.uid===balzyUser?.uid?' is-own':'');const head=document.createElement('div');head.className='chat-message-head';const name=document.createElement('span');name.className='chat-message-name';name.textContent=String(d.username||'Guest').slice(0,24);const time=document.createElement('time');time.textContent=d.createdAt?.toDate?d.createdAt.toDate().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'baru saja';head.append(name,time);const text=document.createElement('div');text.className='chat-message-text';text.textContent=String(d.text||'').slice(0,500);wrap.append(head,text);list.appendChild(wrap)});list.scrollTop=list.scrollHeight;document.getElementById('chatRealtimeLabel').textContent='Live · '+snap.size+' pesan'} ,err=>{setChatStatus('Realtime error: '+err.message);document.getElementById('chatRealtimeLabel').textContent='Error'})}
+async function sendBalzyChatMessage(text){if(!balzyFirebaseReady||!balzyUser||!balzyDb)throw new Error('Chat belum terhubung.');const now=Date.now();if(now-balzyLastSent<1200)throw new Error('Tunggu sebentar sebelum mengirim pesan lagi.');const clean=String(text||'').trim();if(!clean)throw new Error('Pesan tidak boleh kosong.');if(clean.length>500)throw new Error('Maksimal 500 karakter.');balzySending=true;balzyLastSent=now;const nick=(localStorage.getItem('balzy.chat.nickname.'+balzyUser.uid)||document.getElementById('chatNickname').value||('Guest-'+balzyUser.uid.slice(0,5))).trim().slice(0,24);await balzyDb.collection('globalMessages').add({uid:balzyUser.uid,username:nick||('Guest-'+balzyUser.uid.slice(0,5)),text:clean,createdAt:window.firebase.firestore.FieldValue.serverTimestamp()});balzySending=false}
+document.addEventListener('DOMContentLoaded',()=>{setupCardFirstMenus();const form=document.getElementById('chatSendForm');if(form)form.addEventListener('submit',async e=>{e.preventDefault();if(balzySending)return;const input=document.getElementById('chatMessageInput'),btn=document.getElementById('chatSendBtn'),text=input.value;btn.disabled=true;try{await sendBalzyChatMessage(text);input.value=''}catch(err){toast(err.message||'Pesan gagal dikirim')}finally{btn.disabled=false;balzySending=false;input.focus()}})});
+async function saveChatNickname(){if(!balzyUser||!balzyDb)return toast('Hubungkan Firebase dulu.');const input=document.getElementById('chatNickname'),nick=input.value.trim().replace(/\s+/g,' ').slice(0,24);if(!nick)return toast('Nama tidak boleh kosong.');localStorage.setItem('balzy.chat.nickname.'+balzyUser.uid,nick);try{await balzyDb.collection('users').doc(balzyUser.uid).set({username:nick,lastSeenAt:window.firebase.firestore.FieldValue.serverTimestamp()},{merge:true});document.getElementById('chatAccountLabel').textContent=nick;const pn=document.getElementById('profileDisplayName'),pa=document.getElementById('profileAvatar');if(pn)pn.textContent=nick;if(pa)pa.textContent=nick.charAt(0).toUpperCase();toast('Nama tampilan disimpan')}catch(e){toast('Gagal menyimpan nama: '+e.message)}}
+function reconnectBalzyFirebase(){const raw=localStorage.getItem(BALZY_FIREBASE_CONFIG_KEY);if(raw)connectBalzyFirebase(raw);else setChatStatus('Masukkan config Firebase terlebih dahulu.')}
+function showFirebaseSettings(){document.getElementById('firebaseSetupBox').classList.remove('hidden');document.getElementById('firebaseSetupBox').scrollIntoView({behavior:'smooth',block:'nearest'})}
+function disconnectBalzyFirebase(){if(balzyMessagesUnsub){balzyMessagesUnsub();balzyMessagesUnsub=null}localStorage.removeItem(BALZY_FIREBASE_CONFIG_KEY);document.getElementById('firebaseConfigInput').value='';document.getElementById('chatRoomBox').classList.add('hidden');document.getElementById('firebaseSetupBox').classList.remove('hidden');balzyFirebaseReady=false;setChatStatus('Config lokal dihapus. Firebase Auth account tidak dihapus dari console.')}
+function copyFirebaseRules(){const text=document.getElementById('firebaseRulesText').textContent;if(navigator.clipboard?.writeText)navigator.clipboard.writeText(text).then(()=>toast('Security Rules disalin')).catch(()=>fallbackCopy(text));else fallbackCopy(text)}
+function fallbackCopy(text){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');toast('Disalin')}catch(e){toast('Tidak bisa menyalin otomatis')}t.remove()}
+
+// Loading screen: gentle floating blue particles and a heart-shaped burst.
+
+
+// All-in-One Lab: interactive local-first developer tools.
+const LAB_PROJECT_KEY='balzy.lab.project.v1', LAB_AUTOSAVE_KEY='balzy.editor.autosave.v1', LAB_HISTORY_KEY='balzy.editor.history.v1', PQ_SAVE_KEY='balzy.pixelquest.save.v1';
+let labActiveFeature='';
+function openLabFeature(card,key){
+ const root=document.getElementById('labPage');if(!root)return;
+ root.querySelectorAll('[data-lab-panel]').forEach(p=>{p.classList.remove('is-visible');p.style.display='none'});
+ root.querySelectorAll('.lab-card').forEach(c=>c.classList.remove('is-selected','is-pressed'));
+ if(card){card.classList.add('is-pressed','is-selected');setTimeout(()=>card.classList.remove('is-pressed'),220)}
+ const panel=root.querySelector('[data-lab-panel="'+key+'"]');if(panel){panel.style.display='block';panel.classList.remove('is-visible');void panel.offsetWidth;panel.classList.add('is-visible');labActiveFeature=key;panel.scrollIntoView({behavior:'smooth',block:'start'})}
+ if(key==='preview')renderLabPreview();if(key==='projects')initProjectManager();if(key==='responsive')renderResponsivePreview();if(key==='history')refreshHistoryUI();if(key==='quest')refreshQuestUI();if(key==='commands'){};
+}
+function compileProjectSource(){
+ const data=loadProjectData();const editor=document.getElementById('editor'),mode=document.getElementById('editorMode');
+ let html=data['index.html']?.content||(mode?.value==='html'?editor.value:'<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><h1>Balzy Project</h1></body></html>');
+ const css=data['style.css']?.content||'',js=data['script.js']?.content||'',closeScript='<'+'/script>';
+ if(css){const styleTag='<style>'+css+'</style>';if(/href=["'][^"']*style\.css["']/i.test(html))html=html.replace(/<link\b[^>]*href=["'][^"']*style\.css["'][^>]*>/i,styleTag);else if(/<\/head>/i.test(html))html=html.replace(/<\/head>/i,styleTag+'</head>');else html=styleTag+html;}
+ if(js){const scriptTag='<script>new Function('+JSON.stringify(js)+')()'+closeScript;if(/src=["'][^"']*script\.js["']/i.test(html))html=html.replace(/<script\b[^>]*src=["'][^"']*script\.js["'][^>]*>\s*<\/script>/i,scriptTag);else if(/<\/body>/i.test(html))html=html.replace(/<\/body>/i,scriptTag+'</body>');else html+=scriptTag;}
+ return html;
+}
+function renderLabPreview(){const f=document.getElementById('labPreviewFrame');if(!f)return;let html;const mode=document.getElementById('editorMode')?.value||'html',code=document.getElementById('editor').value,closeScript='<'+'/script>';if(mode==='html')html=code;else if(mode==='css')html='<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+code+'</style><main style="font-family:system-ui;padding:24px"><h1>CSS Preview</h1><p>Contoh konten untuk menguji CSS.</p><button>Button</button></main>';else if(mode==='javascript')html='<!doctype html><meta charset="utf-8"><body style="font:14px monospace;padding:18px"><h3>JavaScript output</h3><pre id="out"></pre><script>const code='+JSON.stringify(code)+';const log=(...x)=>document.getElementById("out").textContent+=x.join(" ")+"\\n";console.log=log;try{new Function(code)()}catch(e){log(e.name+":",e.message)}'+closeScript;else html=compileProjectSource();f.srcdoc=html;document.getElementById('labPreviewStatus').textContent='Preview diperbarui dari editor aktif ('+mode.toUpperCase()+').';}
+function openPreviewFullscreen(){const f=document.getElementById('labPreviewFrame');if(!f)return;if(f.requestFullscreen)f.requestFullscreen().catch(()=>toast('Mode layar penuh tidak tersedia'));else toast('Browser tidak mendukung layar penuh untuk preview ini')}
+function checkDebugSyntax(){const code=document.getElementById('debugCode').value,out=document.getElementById('debugOutput');try{new Function(code);out.textContent='✓ Syntax JavaScript valid.\n\nCatatan: pemeriksaan syntax tidak menjamin program bebas dari error saat runtime.';out.classList.add('good')}catch(e){out.textContent='✕ '+e.name+': '+e.message;out.classList.remove('good')}}
+function loadEditorIntoDebugger(){const mode=document.getElementById('editorMode').value;let code=document.getElementById('editor').value;if(mode==='html'){const matches=[...code.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];code=matches.map(m=>m[1]).join('\n\n')||'// Tidak ditemukan inline JavaScript di HTML aktif.'}else if(mode!=='javascript')toast('Mode editor bukan JavaScript; tetap menyalin teks aktif.');document.getElementById('debugCode').value=code;checkDebugSyntax()}
+function runDebugCode(){const code=document.getElementById('debugCode').value,out=document.getElementById('debugOutput');try{new Function(code)}catch(e){out.textContent='Syntax error: '+e.message;return}const frame=document.getElementById('debugRunner');out.textContent='Menjalankan kode di iframe sandbox...';const closeScript='<'+'/script>';const source='<!doctype html><meta charset="utf-8"><pre id="log" style="font:13px monospace;white-space:pre-wrap"></pre><script>(function(){const out=document.getElementById("log"),code='+JSON.stringify(code)+';const add=(...a)=>{out.textContent+=a.map(x=>{try{return typeof x==="object"?JSON.stringify(x):String(x)}catch(_){return String(x)}}).join(" ")+"\\n"};const old=console.log;console.log=(...a)=>{old.apply(console,a);add(...a)};console.info=(...a)=>add("INFO:",...a);console.warn=(...a)=>add("WARN:",...a);console.error=(...a)=>add("ERROR:",...a);window.onerror=(m,src,line)=>add("RUNTIME ERROR:",m,"line",line);try{new Function(code)()}catch(e){add(e.name+":",e.message)}parent.postMessage({type:"balzy-debug-output",text:out.textContent||"Selesai (tidak ada console output)."},"*")})()'+closeScript;window.addEventListener('message',function handler(e){if(e.source!==frame.contentWindow||e.data?.type!=='balzy-debug-output')return;out.textContent=e.data.text;window.removeEventListener('message',handler)});frame.srcdoc=source;setTimeout(()=>{if(out.textContent==='Menjalankan kode di iframe sandbox...')out.textContent='Kode berjalan terlalu lama atau tidak menghasilkan output. Jika ada loop tak berujung, tutup/refresh halaman.'},1800)}
+function loadProjectData(){
+ const defaults={'index.html':{content:'<!doctype html>\n<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Project Balzy</title></head><body><h1>Halo dari Project Manager</h1><p>Edit index.html, style.css, dan script.js.</p><button onclick="sayHello()">Test JS</button></body></html>'},'style.css':{content:'body{font-family:system-ui;padding:24px;background:#f3f4f6;color:#111827}button{padding:10px 14px;border:0;border-radius:9px;background:#2563eb;color:white}'},'script.js':{content:'function sayHello(){alert("Project berhasil dijalankan!")}'} };
+ try{const raw=localStorage.getItem(LAB_PROJECT_KEY);if(raw!==null){const data=JSON.parse(raw);if(data&&typeof data==='object'&&!Array.isArray(data))return data;}}catch(e){}
+ return defaults;
+}
+function storeProjectData(data){try{localStorage.setItem(LAB_PROJECT_KEY,JSON.stringify(data));return true}catch(e){toast('Penyimpanan lokal gagal: '+e.message);return false}}
+function initProjectManager(){let data=loadProjectData();try{if(localStorage.getItem(LAB_PROJECT_KEY)===null)storeProjectData(data);data=loadProjectData()}catch(e){}const sel=document.getElementById('projectFileSelect'),prev=sel.value;sel.replaceChildren();Object.keys(data).sort().forEach(name=>{const o=document.createElement('option');o.value=name;o.textContent=name;sel.appendChild(o)});if(data[prev])sel.value=prev;else if(data['index.html'])sel.value='index.html';selectProjectFile()}
+function selectProjectFile(){const name=document.getElementById('projectFileSelect').value,data=loadProjectData();document.getElementById('projectFileCode').value=data[name]?.content||'';document.getElementById('projectStatus').textContent=name?'File aktif: '+name:'Belum ada file.'}
+function saveProjectFile(){const name=document.getElementById('projectFileSelect').value;if(!name)return toast('Pilih atau buat file terlebih dahulu');const data=loadProjectData();data[name]={content:document.getElementById('projectFileCode').value,updatedAt:new Date().toISOString()};if(storeProjectData(data)){document.getElementById('projectStatus').textContent='Tersimpan lokal: '+name+' · '+new Date().toLocaleTimeString();toast('File proyek disimpan')}}
+function newProjectFile(){const name=prompt('Nama file baru (contoh: about.html, style.css, script.js):');if(!name)return;const clean=name.trim().replace(/[\\/:*?"<>|]/g,'');if(!clean||clean.length>80)return toast('Nama file tidak valid');const data=loadProjectData();if(data[clean])return toast('File sudah ada');data[clean]={content:'',updatedAt:new Date().toISOString()};if(storeProjectData(data)){initProjectManager();document.getElementById('projectFileSelect').value=clean;selectProjectFile();document.getElementById('projectFileCode').focus()}}
+function deleteProjectFile(){const name=document.getElementById('projectFileSelect').value;if(!name)return; if(!confirm('Hapus '+name+' dari proyek lokal?'))return;const data=loadProjectData();delete data[name];storeProjectData(data);initProjectManager();toast('File dihapus dari proyek lokal')}
+function loadProjectFileToEditor(){const name=document.getElementById('projectFileSelect').value,content=document.getElementById('projectFileCode').value;document.getElementById('editor').value=content;const ext=(name.split('.').pop()||'').toLowerCase();const mode={html:'html',htm:'html',css:'css',js:'javascript',mjs:'javascript',json:'json',py:'python',md:'markdown'}[ext]||'html';document.getElementById('editorMode').value=mode;if(previewEnabled)runCode();toast('File dimuat ke Code Studio: '+name)}
+function previewProject(){saveProjectFile();openLabFeature(document.querySelector('.lab-card[onclick*="preview"]'),'preview');const frame=document.getElementById('labPreviewFrame');frame.srcdoc=compileProjectSource();document.getElementById('labPreviewStatus').textContent='Preview proyek multi-file dimuat. File index.html, style.css, script.js digabung secara sederhana.';}
+function exportProject(){const data=loadProjectData();const blob=new Blob([JSON.stringify({name:'Balzy Project',version:1,files:data},null,2)],{type:'application/json'});downloadBlob(blob,'balzy-project.json');toast('Project JSON diekspor')}
+function importProject(){document.getElementById('projectImportFile').click()}
+function handleProjectImport(e){const file=e.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const parsed=JSON.parse(reader.result),files=parsed.files||parsed;if(!files||typeof files!=='object'||Array.isArray(files))throw new Error('Format file tidak sesuai');const clean={};Object.entries(files).forEach(([name,v])=>{if(typeof name==='string'&&v&&typeof v.content==='string')clean[name.replace(/[\\/:*?"<>|]/g,'').slice(0,80)]= {content:v.content}});if(!Object.keys(clean).length)throw new Error('Tidak ada file yang valid');storeProjectData(clean);initProjectManager();toast('Project berhasil diimpor')}catch(err){toast('Import gagal: '+err.message)}e.target.value=''};reader.readAsText(file)}
+function downloadBlob(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1200)}
+function processJSON(action){const input=document.getElementById('jsonInput').value,out=document.getElementById('jsonOutput'),table=document.getElementById('jsonTableWrap');table.classList.add('hidden');try{const parsed=JSON.parse(input);if(action==='format')out.textContent=JSON.stringify(parsed,null,2);else if(action==='minify')out.textContent=JSON.stringify(parsed);else if(action==='validate')out.textContent='✓ JSON valid. Tipe root: '+(Array.isArray(parsed)?'array':parsed===null?'null':typeof parsed);else if(action==='table'){if(!Array.isArray(parsed)||!parsed.every(x=>x&&typeof x==='object'&&!Array.isArray(x)))throw new Error('Aksi tabel memerlukan array berisi objek');const keys=[...new Set(parsed.flatMap(Object.keys))];if(!keys.length)throw new Error('Objek tidak memiliki kolom');const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));table.innerHTML='<table style="width:100%;border-collapse:collapse;font:12px/1.5 ui-monospace,monospace"><thead><tr>'+keys.map(k=>'<th style="text-align:left;padding:7px;border-bottom:1px solid #ffffff22">'+esc(k)+'</th>').join('')+'</tr></thead><tbody>'+parsed.map(row=>'<tr>'+keys.map(k=>'<td style="padding:7px;border-bottom:1px solid #ffffff12">'+esc(typeof row[k]==='object'?JSON.stringify(row[k]):row[k])+'</td>').join('')+'</tr>').join('')+'</tbody></table>';table.classList.remove('hidden');out.textContent='Tabel dibuat dari '+parsed.length+' baris.'}}catch(e){out.textContent='✕ JSON tidak valid: '+e.message;out.classList.remove('good')}}
+async function copyJSONResult(){const text=document.getElementById('jsonOutput').textContent;try{await navigator.clipboard.writeText(text);toast('Output JSON disalin')}catch(e){toast('Clipboard tidak tersedia')}}
+function setResponsiveSize(){const val=document.getElementById('responsiveSize').value,frame=document.getElementById('responsiveFrame');frame.style.width=val==='100%'?'100%':val+'px';document.getElementById('responsiveWidthLabel').textContent=val==='100%'?'Full width':val+' px';renderResponsivePreview()}
+function renderResponsivePreview(){const f=document.getElementById('responsiveFrame');if(!f)return;const mode=document.getElementById('editorMode').value,code=document.getElementById('editor').value,closeScript='<'+'/script>';let html=mode==='html'?code:mode==='css'?'<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+code+'</style><main style="font-family:system-ui;padding:24px"><h1>Responsive CSS Preview</h1><p>Uji ukuran viewport dari dropdown.</p><button>Action</button></main>':mode==='javascript'?'<!doctype html><meta charset="utf-8"><pre id="o" style="font:13px monospace;white-space:pre-wrap;padding:16px"></pre><script>const code='+JSON.stringify(code)+';const log=(...x)=>document.getElementById("o").textContent+=x.join(" ")+"\\n";console.log=log;try{new Function(code)()}catch(e){log(e.name+":",e.message)}'+closeScript:compileProjectSource();f.srcdoc=html;setResponsiveSizeLabelOnly()}
+function setResponsiveSizeLabelOnly(){const val=document.getElementById('responsiveSize').value;document.getElementById('responsiveWidthLabel').textContent=val==='100%'?'Full width':val+' px'}
+function showCommandPalette(){const o=document.getElementById('commandOverlay');o.classList.add('open');o.setAttribute('aria-hidden','false');const i=document.getElementById('commandSearch');i.value='';renderCommandList('');setTimeout(()=>i.focus(),20)}
+function hideCommandPalette(){const o=document.getElementById('commandOverlay');o.classList.remove('open');o.setAttribute('aria-hidden','true')}
+const LAB_COMMANDS=[['Beranda','homePage','home'],['Code Studio','codePage','code'],['Translator','translatePage','translate'],['Static File Scan','scanPage','scan'],['Pixel Quest','gamePage','game'],['Online Hub','onlinePage','online'],['Global Chat','chatPage','chat'],['All-in-One Lab','labPage','lab'],['Buka Live Preview Pro','ACTION_PREVIEW','preview'],['Buka Code Debugger','ACTION_DEBUGGER','debugger'],['Buka Project Manager','ACTION_PROJECTS','projects'],['Buka JSON Toolkit','ACTION_JSON','json'],['Buka Responsive Tester','ACTION_RESPONSIVE','responsive'],['Buka Code History','ACTION_HISTORY','history'],['Buka Pixel Quest Expansion','ACTION_QUEST','quest'],['Run preview editor','ACTION_RUN','run'],['Simpan file proyek','ACTION_SAVE','save']];
+function renderCommandList(query){const root=document.getElementById('commandList');if(!root)return;root.replaceChildren();const items=LAB_COMMANDS.filter(x=>x[0].toLowerCase().includes(query.toLowerCase()));items.forEach(item=>{const b=document.createElement('button');b.className='command-item';b.innerHTML='<span></span><small>Enter ↵</small>';b.firstChild.textContent=item[0];b.onclick=()=>runPaletteCommand(item);root.appendChild(b)});if(!items.length)root.textContent='Tidak ada perintah yang cocok.'}
+function runPaletteCommand(item){hideCommandPalette();if(item[1].startsWith('ACTION_')){const a=item[1].slice(7);if(a==='RUN'){go('codePage','code');runCode()}else if(a==='SAVE'){go('labPage','lab');openLabFeature(document.querySelector('.lab-card[onclick*="projects"]'),'projects');saveProjectFile()}else{go('labPage','lab');const map={PREVIEW:'preview',DEBUGGER:'debugger',PROJECTS:'projects',JSON:'json',RESPONSIVE:'responsive',HISTORY:'history',QUEST:'quest'};const key=map[a];if(key)openLabFeature(document.querySelector('.lab-card[onclick*="'+key+'"]'),key)}}else go(item[1],item[2])}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();showCommandPalette()}if(e.key==='Escape')hideCommandPalette()});
+function getCodeHistory(){try{const a=JSON.parse(localStorage.getItem(LAB_HISTORY_KEY)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+function setCodeHistory(a){try{localStorage.setItem(LAB_HISTORY_KEY,JSON.stringify(a.slice(0,40)))}catch(e){toast('Riwayat tidak dapat disimpan: penyimpanan penuh')}}
+function autoSaveEditor(){const editor=document.getElementById('editor');if(!editor)return;try{localStorage.setItem(LAB_AUTOSAVE_KEY,JSON.stringify({code:editor.value,mode:document.getElementById('editorMode').value,savedAt:new Date().toISOString()}));const e=document.getElementById('autosaveStatus');if(e)e.textContent='Tersimpan';const n=document.getElementById('autosaveNote');if(n)n.textContent='Autosave terakhir: '+new Date().toLocaleTimeString()}catch(e){const a=document.getElementById('autosaveStatus');if(a)a.textContent='Gagal simpan'}}
+function restoreAutosave(){try{const a=JSON.parse(localStorage.getItem(LAB_AUTOSAVE_KEY)||'null');if(!a)return toast('Belum ada autosave');document.getElementById('editor').value=a.code||'';document.getElementById('editorMode').value=a.mode||'html';if(previewEnabled)runCode();toast('Autosave dipulihkan')}catch(e){toast('Autosave tidak dapat dibaca')}}
+function saveCodeSnapshot(){const name=document.getElementById('snapshotName').value.trim()||('Snapshot '+new Date().toLocaleString());const item={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),name,mode:document.getElementById('editorMode').value,code:document.getElementById('editor').value,createdAt:new Date().toISOString()};const arr=getCodeHistory();arr.unshift(item);setCodeHistory(arr);document.getElementById('snapshotName').value='';refreshHistoryUI();toast('Snapshot tersimpan')}
+function refreshHistoryUI(){const arr=getCodeHistory(),sel=document.getElementById('historySelect');if(!sel)return;sel.replaceChildren();arr.forEach(it=>{const o=document.createElement('option');o.value=it.id;o.textContent=it.name+' · '+new Date(it.createdAt).toLocaleString();sel.appendChild(o)});document.getElementById('historyCount').textContent=arr.length;document.getElementById('historyMode').textContent=document.getElementById('editorMode').value.toUpperCase();const auto=localStorage.getItem(LAB_AUTOSAVE_KEY);document.getElementById('autosaveStatus').textContent=auto?'Tersimpan':'Belum ada';if(!arr.length)document.getElementById('historyPreview').textContent='Belum ada snapshot. Tekan Simpan snapshot.'}
+function selectedHistory(){return getCodeHistory().find(x=>x.id===document.getElementById('historySelect').value)}
+function previewHistorySnapshot(){const x=selectedHistory();document.getElementById('historyPreview').textContent=x?x.code:'Pilih snapshot terlebih dahulu.'}
+function restoreHistorySnapshot(){const x=selectedHistory();if(!x)return toast('Pilih snapshot terlebih dahulu');document.getElementById('editor').value=x.code;document.getElementById('editorMode').value=x.mode;if(previewEnabled)runCode();autoSaveEditor();toast('Snapshot dipulihkan ke editor')}
+function exportHistorySnapshot(){const x=selectedHistory();if(!x)return toast('Pilih snapshot terlebih dahulu');downloadBlob(new Blob([JSON.stringify(x,null,2)],{type:'application/json'}),'balzy-snapshot.json')}
+function clearCodeHistory(){if(!confirm('Hapus semua snapshot riwayat? Autosave terbaru tidak ikut dihapus.'))return;setCodeHistory([]);refreshHistoryUI();toast('Riwayat dihapus')}
+
+// Pixel Quest progression extension: crafting, quests, combat and local save.
+Object.assign(pg,{xp:0,level:1,monsterHealth:30,monsterDefeated:false,quests:{resources:false,city:false,monster:false},pickaxe:false,potions:0});
+function pqAddXP(n){pg.xp=(pg.xp||0)+n;while(pg.xp>=pg.level*50){pg.xp-=pg.level*50;pg.level++;pg.health=100;pg.mana=100;gameLog('Level naik! Sekarang level '+pg.level+'. Nyawa dan mana dipulihkan.')}refreshQuestUI()}
+function pqMine(){const roll=Math.random();if(roll<.42)pg.items.wood+=pg.pickaxe?2:1;else if(roll<.84)pg.items.stone+=pg.pickaxe?2:1;else pg.items.crystal+=1;pg.coins+=1;pqAddXP(pg.pickaxe?8:5);const total=pg.items.wood+pg.items.stone+pg.items.crystal;if(total>=5)pg.quests.resources=true;drawPixelWorld();openGamePanel('inventory');gameLog('Resource dikumpulkan. XP bertambah; periksa tas dan quest.');refreshQuestUI()}
+function pqAttack(){if(pg.monsterDefeated){gameLog('Monster sudah dikalahkan. Progres quest tercatat.');return}pg.mana=Math.max(0,pg.mana-4);pg.monsterHealth=Math.max(0,pg.monsterHealth-10);if(pg.monsterHealth===0){pg.monsterDefeated=true;pg.coins+=8;pg.quests.monster=true;pqAddXP(25);gameLog('Monster blok dikalahkan! +8 koin dan +25 XP.')}else{pg.health=Math.max(1,pg.health-3);gameLog('Serangan mengenai monster. HP monster: '+pg.monsterHealth+'/30. Monster membalas -3 nyawa.')}refreshQuestUI();drawPixelWorld()}
+function pqCraft(type){if(type==='pickaxe'){if(pg.pickaxe)return toast('Pickaxe sudah dimiliki');if(pg.items.wood<3||pg.items.stone<2)return toast('Butuh 3 kayu dan 2 batu');pg.items.wood-=3;pg.items.stone-=2;pg.pickaxe=true;pqAddXP(10);gameLog('Pickaxe berhasil dibuat. Mining menghasilkan resource ekstra.')}else if(type==='potion'){if(pg.items.crystal<2)return toast('Butuh 2 kristal');pg.items.crystal-=2;pg.potions=(pg.potions||0)+1;pg.mana=Math.min(100,pg.mana+25);pg.health=Math.min(100,pg.health+15);gameLog('Potion dibuat dan langsung digunakan: +15 nyawa, +25 mana.')}openGamePanel('inventory');refreshQuestUI();drawPixelWorld()}
+function pqVisitCity(){gameAction('city');pg.quests.city=true;pqAddXP(5);refreshQuestUI()}
+function pqSave(){const state={x:pg.x,y:pg.y,health:pg.health,mana:pg.mana,coins:pg.coins,items:pg.items,zone:pg.zone,xp:pg.xp,level:pg.level,monsterHealth:pg.monsterHealth,monsterDefeated:pg.monsterDefeated,quests:pg.quests,pickaxe:pg.pickaxe,potions:pg.potions};try{localStorage.setItem(PQ_SAVE_KEY,JSON.stringify(state));document.getElementById('pqStatus').textContent='Progres disimpan di browser ini pada '+new Date().toLocaleTimeString();toast('Progres Pixel Quest disimpan')}catch(e){toast('Gagal menyimpan progres: '+e.message)}}
+function pqLoad(){try{const d=JSON.parse(localStorage.getItem(PQ_SAVE_KEY)||'null');if(!d)return toast('Belum ada progres tersimpan');Object.assign(pg,d);pg.items=Object.assign({wood:0,stone:0,crystal:0},d.items||{});pg.quests=Object.assign({resources:false,city:false,monster:false},d.quests||{});drawPixelWorld();refreshQuestUI();document.getElementById('pqStatus').textContent='Progres dimuat dari penyimpanan lokal.';toast('Progres Pixel Quest dimuat')}catch(e){toast('Save game tidak valid')}}
+function pqReset(){if(!confirm('Reset progres Pixel Quest? Save tersimpan akan tetap ada sampai kamu menimpanya.'))return;pg.x=320;pg.y=200;pg.health=100;pg.mana=100;pg.coins=0;pg.items={wood:0,stone:0,crystal:0};pg.xp=0;pg.level=1;pg.monsterHealth=30;pg.monsterDefeated=false;pg.quests={resources:false,city:false,monster:false};pg.pickaxe=false;pg.potions=0;drawPixelWorld();refreshQuestUI();toast('Progres game direset')}
+function refreshQuestUI(){const level=document.getElementById('pqLevel');if(!level)return;level.textContent=pg.level||1;document.getElementById('pqXP').textContent=(pg.xp||0)+' / '+((pg.level||1)*50);document.getElementById('pqMonster').textContent=pg.monsterDefeated?'Dikalahkan':'HP '+(pg.monsterHealth??30)+'/30';const total=(pg.items?.wood||0)+(pg.items?.stone||0)+(pg.items?.crystal||0);document.getElementById('pqQuestList').textContent='QUEST\n'+(pg.quests?.resources?'✓':'□')+' Kumpulkan 5 resource ('+total+'/5)\n'+(pg.quests?.city?'✓':'□')+' Kunjungi Kota Blok\n'+(pg.quests?.monster?'✓':'□')+' Kalahkan monster blok\n\nInventaris: '+(pg.items?.wood||0)+' kayu · '+(pg.items?.stone||0)+' batu · '+(pg.items?.crystal||0)+' kristal · '+(pg.coins||0)+' koin\nPickaxe: '+(pg.pickaxe?'Dimiliki':'Belum dibuat')+' · Potion: '+(pg.potions||0)}
+// Draw a small monster in the game world to visually support the new combat loop.
+const _drawPixelWorldBase=drawPixelWorld;drawPixelWorld=function(){_drawPixelWorldBase();if(!pg.ctx||pg.monsterDefeated)return;const c=pg.ctx,x=560,y=330;c.fillStyle='#111827';c.fillRect(x-11,y+11,23,4);c.fillStyle='#7f1d1d';c.fillRect(x-10,y-7,20,20);c.fillStyle='#ef4444';c.fillRect(x-12,y-14,24,10);c.fillStyle='#fff';c.fillRect(x-6,y-11,4,4);c.fillRect(x+3,y-11,4,4);c.fillStyle='#111827';c.fillRect(x-5,y-10,2,2);c.fillRect(x+4,y-10,2,2);c.fillStyle='#111827';c.fillRect(x-8,y+13,5,7);c.fillRect(x+4,y+13,5,7)};
+// Keep editor autosave independent from any external service.
+const editorEl=document.getElementById('editor');if(editorEl){editorEl.addEventListener('input',()=>{const a=document.getElementById('autosaveStatus');if(a)a.textContent='Menyimpan…';clearTimeout(window._balzyAutoTimer);window._balzyAutoTimer=setTimeout(autoSaveEditor,350)});editorEl.addEventListener('change',autoSaveEditor)}
+const editorModeEl=document.getElementById('editorMode');if(editorModeEl)editorModeEl.addEventListener('change',autoSaveEditor);
+const commandSearchEl=document.getElementById('commandSearch');if(commandSearchEl){commandSearchEl.addEventListener('input',()=>renderCommandList(commandSearchEl.value));commandSearchEl.addEventListener('keydown',e=>{if(e.key==='Enter'){const first=document.querySelector('#commandList .command-item');if(first)first.click()}})}
+const commandOverlayEl=document.getElementById('commandOverlay');if(commandOverlayEl)commandOverlayEl.addEventListener('click',e=>{if(e.target===commandOverlayEl)hideCommandPalette()});
+try{if(localStorage.getItem(LAB_AUTOSAVE_KEY)){const saved=JSON.parse(localStorage.getItem(LAB_AUTOSAVE_KEY));if(saved?.code&&editorEl&&editorEl.value.trim()==='')editorEl.value=saved.code}}catch(e){}
+refreshQuestUI();
+
+(function initParticleLoading(){
+  const screen = document.getElementById('loadingScreen');
+  const canvas = document.getElementById('loadingCanvas');
+  const progress = document.getElementById('loadingProgress');
+  const status = document.getElementById('loadingStatus');
+  if (!screen || !canvas || !progress || !status) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) { screen.classList.add('is-hidden'); return; }
+
+  const BLUE_SHADES = ['#3b82f6','#60a5fa','#93c5fd','#2563eb','#bfdbfe','#1d4ed8'];
+  const floatParticles = [];
+  const burstParticles = [];
+  const FLOAT_COUNT = 54;
+  let width = 0, height = 0, raf = 0, startTime = 0, lastTime = 0;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth; height = window.innerHeight;
+    canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  class Particle {
+    constructor(x, y, type){
+      this.x=x; this.y=y; this.type=type; this.color=BLUE_SHADES[Math.floor(Math.random()*BLUE_SHADES.length)];
+      this.size=type==='burst' ? 1.5+Math.random()*3.8 : 1+Math.random()*2.4;
+      this.maxLife=type==='burst' ? 550+Math.random()*650 : 5000+Math.random()*6500;
+      this.life=0; this.alpha=.3+Math.random()*.65;
+      this.vx=type==='burst' ? (Math.random()-.5)*7 : (Math.random()-.5)*.35;
+      this.vy=type==='burst' ? (Math.random()-.5)*7 : -.12-Math.random()*.42;
+      this.twinkle=Math.random()*Math.PI*2;
+    }
+    update(dt){
+      this.life+=dt; this.x+=this.vx*(dt/16); this.y+=this.vy*(dt/16);
+      this.twinkle+=dt*.003;
+      if(this.type==='burst'){this.vx*=.992;this.vy*=.992;this.vy+=.003*(dt/16)}
+      else if(this.y < -10){this.y=height+10;this.x=Math.random()*width}
+      if(this.x < -12)this.x=width+12; if(this.x > width+12)this.x=-12;
+    }
+    draw(){
+      const lifeRatio=Math.max(0,1-this.life/this.maxLife);
+      const alpha=this.alpha*(this.type==='burst'?lifeRatio:(.65+.35*Math.sin(this.twinkle)));
+      ctx.globalAlpha=Math.max(0,alpha);
+      ctx.fillStyle=this.color;
+      if(this.type==='burst'){
+        // Tiny heart silhouette for the burst particles.
+        const r=this.size;
+        ctx.beginPath();ctx.moveTo(this.x,this.y+r*.35);ctx.bezierCurveTo(this.x-r*1.5,this.y-r*.6,this.x-r*.65,this.y-r*1.25,this.x,this.y-r*.45);ctx.bezierCurveTo(this.x+r*.65,this.y-r*1.25,this.x+r*1.5,this.y-r*.6,this.x,this.y+r*.35);ctx.fill();
+      }else{ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill()}
+      ctx.globalAlpha=1;
+    }
+  }
+
+  for(let i=0;i<FLOAT_COUNT;i++){
+    const p=new Particle(Math.random()*width,Math.random()*height,'float');
+    p.life=Math.random()*p.maxLife; // stagger starting life
+    floatParticles.push(p);
+  }
+
+  function spawnHeartBurst(x,y){
+    const count=140;
+    for(let i=0;i<count;i++){
+      const t=(Math.PI*2*i)/count;
+      const hx=16*Math.pow(Math.sin(t),3);
+      const hy=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t));
+      const p=new Particle(x,y,'burst');
+      p.vx=hx*.19+(Math.random()-.5)*.7;
+      p.vy=hy*.19+(Math.random()-.5)*.7;
+      p.size=1.6+Math.random()*2.7;
+      p.life=Math.random()*90;
+      burstParticles.push(p);
+    }
+  }
+
+  function drawFrame(now){
+    if(!startTime)startTime=now;
+    const dt=Math.min(40,lastTime?now-lastTime:16);lastTime=now;
+    ctx.clearRect(0,0,width,height);
+    for(let i=floatParticles.length-1;i>=0;i--){const p=floatParticles[i];p.update(dt);p.draw()}
+    for(let i=burstParticles.length-1;i>=0;i--){const p=burstParticles[i];p.update(dt);p.draw();if(p.life>=p.maxLife)burstParticles.splice(i,1)}
+    if(!reduceMotion)raf=requestAnimationFrame(drawFrame);
+  }
+
+  resize();
+  for(let i=0;i<FLOAT_COUNT;i++){
+    const p=floatParticles[i]; if(!width||!height)continue;
+    p.x=Math.random()*width;p.y=Math.random()*height;
+  }
+  if(reduceMotion){floatParticles.slice(0,20).forEach(p=>p.draw())}else{raf=requestAnimationFrame(drawFrame)}
+  window.addEventListener('resize',resize,{passive:true});
+  setTimeout(()=>spawnHeartBurst(width/2,height/2-25),180);
+  const messages=['Menyiapkan tools coding...','Memuat workspace...','Hampir siap...'];
+  const duration=2100;
+  const ticker=setInterval(()=>{
+    const elapsed=performance.now()-startTime;
+    const pct=Math.min(100,Math.round(elapsed/duration*100));
+    progress.style.width=pct+'%';
+    status.textContent=messages[Math.min(messages.length-1,Math.floor(pct/38))];
+    if(pct>=100){clearInterval(ticker);setTimeout(()=>{
+      screen.classList.add('is-hidden');
+      if(raf)cancelAnimationFrame(raf);
+      window.removeEventListener('resize',resize);
+      setTimeout(()=>screen.remove(),700);
+    },180)}
+  },45);
+  // Let users skip the intro immediately with a tap or key press.
+  function skip(){progress.style.width='100%';screen.classList.add('is-hidden');clearInterval(ticker);if(raf)cancelAnimationFrame(raf);window.removeEventListener('resize',resize);setTimeout(()=>screen.remove(),700);window.removeEventListener('keydown',skip);screen.removeEventListener('pointerdown',skip)}
+  window.addEventListener('keydown',skip,{once:true});screen.addEventListener('pointerdown',skip,{once:true});
+})();
+</script>
+</body></html>
